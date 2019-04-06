@@ -1602,7 +1602,37 @@
     
 </script>
 -->
+<!--<script src="assets/js/initilize.js"></script>-->
 <script  src="assets/js/app.js"></script>
+
+<!--
+<script>
+    var ref = firebase.database().ref("users/");
+
+    ref.on("value", function(snapshot) {
+    console.log(snapshot.val());
+
+    if("1234" in snapshot.val())
+    {
+    console.log("12345 is in snapshot");
+    }
+
+    else
+    {
+    console.log("12345 not present ");
+    }
+    for(user in snapshot.val())
+    {
+    console.log(user);
+    }
+
+
+    }, function (error) {
+    console.log("Error: " + error.code);
+    });
+</script>
+-->
+     
 </body>
 
 <!-- Mirrored from themevessel-item.s3-website-us-east-1.amazonaws.com/xero/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 02 Apr 2019 18:12:39 GMT -->

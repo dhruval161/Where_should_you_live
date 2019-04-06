@@ -5,10 +5,35 @@ firebase.auth().onAuthStateChanged(function(user) {
     var user = firebase.auth().currentUser;
    
     global1 = user.email;
-    
+
     localStorage.setItem("UID",user.uid);
     console.log(localStorage.getItem(("UID")));
+
+    // check whether the user details already exist otherwirse add it
+    var ref = firebase.database().ref("users/");
+
+    ref.on("value", function(snapshot) {
+    console.log(snapshot.val());
+
+    if(localStorage.getItem(("UID")) in snapshot.val())
+    {
+    console.log(localStorage.getItem(("UID")) + "is in snapshot");
     window.location.href = 'index.html';
+    }
+
+    else
+    {
+    console.log(localStorage.getItem(("UID")) + "is not present in snippet");
+    var userref = firebase.database().ref("users/" + localStorage.getItem(("UID")));
+    userref.set({
+        name : document.getElementById("r_name_field").value,
+        email: document.getElementById("r_email_field").value
+    });
+    }
+
+    }, function (error) {
+    console.log("Error: " + error.code);
+    });
 
     if(user != null){
       
@@ -93,12 +118,6 @@ function createaccount()
     // ...
     });
 
-    setTimeout(function(){
-      console.log(ret.i.user.uid);
-      localStorage.setItem("UID",ret.i.user.uid);
-      window.location.href = 'index.html';
-    },1000);
-    
   }
 }
 
