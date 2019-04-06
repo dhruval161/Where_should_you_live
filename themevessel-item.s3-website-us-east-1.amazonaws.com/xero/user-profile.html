@@ -341,36 +341,36 @@
                             <div class="col-lg-12 ">
                                 <div class="form-group name">
                                     <label>Your Name</label>
-                                    <input type="text" name="name" class="form-control" placeholder="John Deo">
+                                    <input id="user_name" type="text" name="name" class="form-control" placeholder="Name">
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="form-group email">
-                                    <label>Your Title</label>
-                                    <input type="text" name="title" class="form-control" placeholder="Your Title">
+                                    <label>Your Job description</label>
+                                    <input id="user_job" type="text" name="title" class="form-control" placeholder="Your Title">
                                 </div>
                             </div>
                             <div class="col-lg-12 ">
                                 <div class="form-group subject">
                                     <label>Phone</label>
-                                    <input type="text" name="phone" class="form-control" placeholder="Phone">
+                                    <input  id="user_phone" type="text" name="phone" class="form-control" placeholder="Phone">
                                 </div>
                             </div>
                             <div class="col-lg-12 ">
                                 <div class="form-group number">
                                     <label>Email</label>
-                                    <input type="email" name="email" class="form-control" placeholder="Email">
+                                    <input id="user_email" type="email" name="email" class="form-control" placeholder="Email">
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="form-group message">
                                     <label>Name</label>
-                                    <textarea class="form-control" name="message" placeholder="Write message"></textarea>
+                                    <textarea id="user_msg" class="form-control" name="message" placeholder="Write message"></textarea>
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="send-btn">
-                                    <button type="submit" class="btn btn-color btn-md btn-message">Send Changes</button>
+                                    <button type="submit" class="btn btn-color btn-md btn-message" onclick="sendchanges()">Send Changes</button>
                                 </div>
                             </div>
                         </div>
@@ -589,7 +589,7 @@
 <script  src="assets/js/app.js"></script>
 <script>
     $('document').ready(function(){
-        
+
         console.log("from user profile");
         if(loggedin())
         {
@@ -603,6 +603,33 @@
             },100);
         }
 
+        // read user details
+        var userdet = firebase.database().ref("users/" + getuserdetails());
+        userdet.on("value", function(snapshot) {
+           document.getElementById("user_name").style.color="black";
+           document.getElementById("user_job").style.color="black";
+           document.getElementById("user_phone").style.color="black";
+           document.getElementById("user_email").style.color="black";
+           document.getElementById("user_msg").style.color="black";
+
+           if(snapshot.numChildren()>2)
+           {
+           document.getElementById("user_name").value = snapshot.val().name;
+           document.getElementById("user_job").value = snapshot.val().job_desc;
+           document.getElementById("user_phone").value = snapshot.val().phone;
+           document.getElementById("user_email").value = snapshot.val().email;
+           document.getElementById("user_msg").value = snapshot.val().msg;
+           }
+           else
+           {
+           document.getElementById("user_name").value = snapshot.val().name;
+           document.getElementById("user_email").value = snapshot.val().email;
+           }
+        }, function (error) {
+           console.log("Error: " + error.code);
+        });
+
+
         var database = firebase.database();
 
         var ref = database.ref("property/");
@@ -613,7 +640,7 @@
         },function(err){
             console.log("error");
         });
-        
+
         /*tempref = ref.push({
             name:"delhi",
             id:"55556",
@@ -621,25 +648,23 @@
             rating:10.0,
             price:3000,
             description:"fcagvshbdjnkagadh"
-        });
+        });*/
 
-        console.log(tempref.key);*/
-        
-        /*var userref = database.ref("users/" );
+        //console.log(tempref.key);
 
-        userref.on("value",function(snapshot){
+        //var userref = database.ref("users/" );
+
+        // update user using uid
+        //var userref = database.ref("users/" + getuserdetails());
+        /*userref.set({
+            name : "anon"
+        });*/
+
+        /*userref.on("value",function(snapshot){
             console.log(snapshot.val());
         },function(err){
             console.log("err");
         });*/
-
-        // update user using uid
-        var userref = database.ref("users/" + getuserdetails());
-        userref.set({
-            name : "anon"
-        });
-
-        
     });
 </script>
 </body>
