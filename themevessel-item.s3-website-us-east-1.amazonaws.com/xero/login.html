@@ -124,6 +124,20 @@
 <script src="assets/js/initilize.js"></script>
 <script src="assets/js/loginuser.js"></script>
 <script  src="assets/js/app.js"></script>
+<script>
+    $('document').ready(function(){
+        
+        console.log("from user login");
+        if(loggedin())
+        {
+            console.log("redirect");
+            setTimeout(function(){
+                location.href = "index.html";
+            },100);
+        }
+        
+    });
+</script>
 </body>
 
 <!-- Mirrored from themevessel-item.s3-website-us-east-1.amazonaws.com/xero/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 02 Apr 2019 18:17:09 GMT -->
