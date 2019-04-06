@@ -614,7 +614,7 @@
             console.log("error");
         });
         
-        tempref = ref.push({
+        /*tempref = ref.push({
             name:"delhi",
             id:"55556",
             address:'dfguaybisnkgerh',
@@ -623,21 +623,23 @@
             description:"fcagvshbdjnkagadh"
         });
 
-        console.log(tempref.key);
+        console.log(tempref.key);*/
         
-        var userref = database.ref("users/" );
-
-        // update user using uid
-        //var userref = database.ref("users/" + getuserdetails());
-        /*userref.set({
-            name : "anon"
-        });*/
+        /*var userref = database.ref("users/" );
 
         userref.on("value",function(snapshot){
             console.log(snapshot.val());
         },function(err){
             console.log("err");
+        });*/
+
+        // update user using uid
+        var userref = database.ref("users/" + getuserdetails());
+        userref.set({
+            name : "anon"
         });
+
+        
     });
 </script>
 </body>
