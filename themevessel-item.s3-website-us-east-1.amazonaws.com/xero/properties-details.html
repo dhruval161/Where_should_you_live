@@ -821,7 +821,7 @@
                     </div>
                 </div>
                 <!-- Comments section start -->
-                <div class="comments-section">
+                <!--<div class="comments-section">
                     <h3 class="heading">Comments Section</h3>
                     <ul class="comments">
                         <li>
@@ -931,7 +931,32 @@
                         </li>
                     </ul>
                 </div>
+                -->
+
+                <div id="disqus_thread"></div>
+                <script>
+
+                /**
+                *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+                var disqus_config = function () {
+                this.page.url = "http://where-should-you-live.surge.sh/themevessel-item.s3-website-us-east-1.amazonaws.com/xero/properties-details.html";  // Replace PAGE_URL with your page's canonical URL variable
+                //this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                };
+
+                (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document, s = d.createElement('script');
+                s.src = 'https://sen-project22.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+                })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
                 <!-- Contact 1 start -->
+                <!--
                 <div class="contact-3 mb-60">
                     <h3 class="heading">Leave a Comment</h3>
                     <div class="container">
@@ -972,7 +997,7 @@
                             </form>
                         </div>
                     </div>
-                </div>
+                </div>-->
             </div>
             <div class="col-lg-4 col-md-12">
                 <div class="sidebar mbl">
@@ -1145,23 +1170,24 @@
                         <form action="#" method="GET" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label class="form-label">Property Price</label>
-                                <input type="text" class="form-control" placeholder="$36.400">
+                                <input style="color:black" id="prop_price" type="text" class="form-control" placeholder="36.4">
                             </div>
                             <div class="form-group">
-                                <label class="form-label">Interest Rate (%)</label>
-                                <input type="text" class="form-control" placeholder="10%">
+                                <label class="form-label">Annual Interest Rate (%)</label>
+                                <input style="color:black" id="rate" type="text" class="form-control" placeholder="10%">
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Period In Months</label>
-                                <input type="text" class="form-control" placeholder="10 Months">
+                                <input style="color:black" id="period" type="text" class="form-control" placeholder="10">
                             </div>
+
                             <div class="form-group">
-                                <label class="form-label">Down PaymenT</label>
-                                <input type="text" class="form-control" placeholder="$21,300">
+                                <label class="form-label">Mortgage Value (Monthly Payment)</label>
+                                <input readonly style="color:black" id="mort_val" type="text" class="form-control">
                             </div>
                             <br>
                             <div class="form-group mb-0">
-                                <button type="submit" class="btn btn-color btn-md btn-message btn-block">Cauculate</button>
+                                <button type="submit" class="btn btn-color btn-md btn-message btn-block" onclick="calculate_mortgage()">Calculate</button>
                             </div>
                         </form>
                     </div>
@@ -1461,6 +1487,43 @@
 <script src="assets/js/ie-emulation-modes-warning.js"></script>
 <!-- Custom JS Script -->
 <script  src="assets/js/app.js"></script>
+
+<script>
+function calculate_mortgage()
+{
+prop_price = document.getElementById("prop_price").value;
+rate = document.getElementById("rate").value;
+period = document.getElementById("period").value;
+
+
+if(prop_price.length==0 || rate.length==0 || period.length==0)
+{
+    window.alert("Enter the data fields");
+    return;
+}
+
+prop_price = parseFloat(prop_price);
+rate = parseFloat(rate);
+period = parseFloat(period);
+
+if(isNaN(prop_price)||prop_price<0||isNaN(rate)||rate<0||isNaN(period)||period<0)
+{
+    window.alert("Enter the data correctly");
+    return;
+}
+
+rate = rate/12;
+
+num = (rate*((1+rate)**(period)))/(((1+rate)**(period))-1);
+mortage_val = parseInt(prop_price*num);
+
+
+document.getElementById("mort_val").value = mortage_val
+
+}
+
+</script>
+
 </body>
 
 <!-- Mirrored from themevessel-item.s3-website-us-east-1.amazonaws.com/xero/properties-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 02 Apr 2019 18:15:00 GMT -->
