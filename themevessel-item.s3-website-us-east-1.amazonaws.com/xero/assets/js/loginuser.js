@@ -29,6 +29,13 @@ firebase.auth().onAuthStateChanged(function(user) {
         name : document.getElementById("r_name_field").value,
         email: document.getElementById("r_email_field").value
     });
+
+    var emailreg = firebase.database().ref("emailreg/" + localStorage.getItem(("UID")));
+    userref.set({
+        name : document.getElementById("r_name_field").value,
+        email: document.getElementById("r_email_field").value
+    });
+
     }
 
     }, function (error) {
@@ -133,6 +140,48 @@ function loggedin()
   }
 }
 
+function password_reset()
+{
+var auth = firebase.auth();
 
+document.getElementById("send_email_here").setAttribute("readonly", "true");
+var emailAddress = document.getElementById("send_email_here").value;
+console.log(emailAddress);
+
+    var ref = firebase.database().ref("users/");
+    var arr = [];
+    let flag=0;
+
+ref.on("value", function(data) {
+let val =data.val();
+    for(x in val)
+    {
+        if(val[x].email === emailAddress)
+        {
+        flag = 1;
+        }
+        if(flag==1)
+        {
+        console.log("email present in database");
+        auth.sendPasswordResetEmail(emailAddress).then(function() {
+        console.log("Email sent")}).catch(function(error) {
+        console.log(error);
+          // An error happened.
+        });
+        document.getElementById("email_sent").style.visibility="visible";
+        break;
+        }
+        else
+        {
+        console.log("email not present in database");
+        }
+
+    }
+});
+
+
+
+
+}
 
    
