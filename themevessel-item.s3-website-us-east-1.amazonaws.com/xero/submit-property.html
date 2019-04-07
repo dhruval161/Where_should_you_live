@@ -300,53 +300,41 @@
                                     <div class="col-lg-4 col-md-6">
                                         <div class="form-group">
                                             <label>Property Title</label>
-                                            <input type="text" name="property-title" class="form-control" placeholder="Property Title">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-6">
-                                        <div class="form-group">
-                                            <label>Type</label>
-                                            <select class="selectpicker search-fields" name="Status">
-                                                <option>Apartment</option>
-                                                <option>House</option>
-                                                <option>Commercial</option>
-                                                <option>Garage</option>
-                                                <option>Lot</option>
-                                            </select>
+                                            <input type="text" id="name" name="property-title" class="form-control" placeholder="Property Title">
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6">
                                         <div class="form-group">
                                             <label>Price</label>
-                                            <input type="text" name="price" class="form-control" placeholder="USD">
+                                            <input type="text" id="price" name="price" class="form-control" placeholder="USD">
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6">
                                         <div class="form-group">
                                             <label>Area/Location</label>
-                                            <input type="text" name="price" class="form-control" placeholder="SqFt">
+                                            <input type="text" id="area" name="price" class="form-control" placeholder="SqFt">
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6">
                                         <div class="form-group">
                                             <label>Bedrooms</label>
-                                            <select class="selectpicker search-fields" name="Status">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
+                                            <select id="bedroom" class="selectpicker search-fields" name="Status">
+                                                <option value="1" >1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6">
                                         <div class="form-group">
                                             <label>Bathroom</label>
-                                            <select class="selectpicker search-fields" name="Status">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
+                                            <select id="bathroom" class="selectpicker search-fields" name="Status">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
                                             </select>
                                         </div>
                                     </div>
@@ -355,9 +343,6 @@
                                 <h3 class="heading">Property Gallery</h3>
                                 <div class="row mb-60">
                                     <div class="col-lg-12">
-                                        <div id="myDropZone" class="dropzone dropzone-design">
-                                            <div class="dz-default dz-message"><span>Drop files here to upload</span></div>
-                                        </div>
                                         <input type="file" value="upload" id="fileupload">
                                     </div>
                                 </div>
@@ -367,39 +352,31 @@
                                     <div class="col-lg-6 col-md-6">
                                         <div class="form-group">
                                             <label>Address</label>
-                                            <input type="text" name="address" class="form-control" placeholder="Address">
+                                            <input id="address" type="text" name="address" class="form-control" placeholder="Address">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6">
                                         <div class="form-group">
                                             <label>City</label>
-                                            <select class="selectpicker search-fields" name="Status">
-                                                <option>Choose City</option>
-                                                <option>New York</option>
-                                                <option>Chicago</option>
-                                                <option>Queens</option>
-                                                <option>Manhattan</option>
-                                                <option>San Antonio</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6">
-                                        <div class="form-group">
-                                            <label>State</label>
-                                            <select class="selectpicker search-fields" name="Status">
-                                                <option>Choose State</option>
-                                                <option>Alabama</option>
-                                                <option>California</option>
-                                                <option>Connecticut</option>
-                                                <option>Florida</option>
-                                                <option>Georgia</option>
+                                            <select id="city" class="selectpicker search-fields" name="city">
+                                                <option value="Ahmedabad">Ahmedabad</option>
+                                                <option value="Gandhinagar" >Gandhinagar</option>
+                                                <option value="Vadodara">Vadodara</option>
+                                                <option value="Surat">Surat</option>
+                                                <option value="Rajkot">Rajkot</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6">
                                         <div class="form-group">
                                             <label>Postal Code</label>
-                                            <input type="text" name="postal-code" class="form-control" placeholder="Postal Code">
+                                            <input id="code" type="number" name="postal-code" class="form-control" placeholder="Postal Code">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form-group">
+                                            <label>Building Age</label>
+                                            <input id="age" type="number" name="building-age" class="form-control" placeholder="Building Age">
                                         </div>
                                     </div>
                                 </div>
@@ -409,75 +386,13 @@
                                     <div class="col-lg-12">
                                         <div class="form-group message">
                                             <label>Detailed Information</label>
-                                            <textarea class="form-control" name="message" placeholder="Detailed Information"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4">
-                                        <div class="form-group">
-                                            <label>Building Age (optional)</label>
-                                            <select class="selectpicker search-fields" name="Status">
-                                                <option>0-5 Years</option>
-                                                <option>0-10 Years</option>
-                                                <option>0-15 Years</option>
-                                                <option>0-20 Years</option>
-                                                <option>0-25 Years</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4">
-                                        <div class="form-group">
-                                            <label>Bedrooms (optional)</label>
-                                            <select class="selectpicker search-fields" name="Status">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4">
-                                        <div class="form-group">
-                                            <label>Bathrooms (optional)</label>
-                                            <select class="selectpicker search-fields" name="Status">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                            </select>
+                                            <textarea id="detail" class="form-control" name="message" placeholder="Detailed Information"></textarea>
                                         </div>
                                     </div>
                                 </div>
 
                                 <h3 class="heading">Features (optional)</h3>
                                 <div class="row mb-50">
-                                    <div class="col-lg-4 col-md-4">
-                                        <div class="form-group">
-                                            <div class="form-check checkbox-theme">
-                                                <input class="form-check-input" type="checkbox" value="" id="air-condition">
-                                                <label class="form-check-label" for="air-condition">
-                                                    Air Condition
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="form-check checkbox-theme">
-                                                <input class="form-check-input" type="checkbox" value="" id="free-parking">
-                                                <label class="form-check-label" for="free-parking">
-                                                    Free Parking
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="form-check checkbox-theme">
-                                                <input class="form-check-input" type="checkbox" value="" id="swimming-pool">
-                                                <label class="form-check-label" for="swimming-pool">
-                                                    Swimming Pool
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
                                     <div class="col-lg-4 col-md-4">
                                         <div class="form-group">
                                             <div class="form-check checkbox-theme">
@@ -489,35 +404,50 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="form-check checkbox-theme">
+                                                <input class="form-check-input" type="checkbox" value="" id="free-parking">
+                                                <label class="form-check-label" for="free-parking">
+                                                    Free Parking
+                                                </label>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="col-lg-4 col-md-4">
+                                        
+                                        <div class="form-group">
+                                            <div class="form-check checkbox-theme">
                                                 <input class="form-check-input" type="checkbox" value="" id="window-covering">
                                                 <label class="form-check-label" for="window-covering">
                                                     Window Covering
                                                 </label>
                                             </div>
                                         </div>
+
                                         <div class="form-group">
                                             <div class="form-check checkbox-theme">
-                                                <input class="form-check-input" type="checkbox" value="" id="places">
-                                                <label class="form-check-label" for="places">
-                                                    Places to seat
+                                                <input class="form-check-input" type="checkbox" value="" id="swimming-pool">
+                                                <label class="form-check-label" for="swimming-pool">
+                                                    Swimming Pool
                                                 </label>
                                             </div>
                                         </div>
+                                        
                                     </div>
                                     <div class="col-lg-4 col-md-4">
+                                        
                                         <div class="form-group">
                                             <div class="form-check checkbox-theme">
-                                                <input class="form-check-input" type="checkbox" value="" id="alarm">
-                                                <label class="form-check-label" for="alarm">
-                                                    Alarm
+                                                <input class="form-check-input" type="checkbox" value="" id="rent">
+                                                <label class="form-check-label" for="rent">
+                                                    Rent
                                                 </label>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="form-check checkbox-theme">
-                                                <input class="form-check-input" type="checkbox" value="" id="central-heating">
-                                                <label class="form-check-label" for="central-heating">
-                                                    Central Heating
+                                                <input class="form-check-input" type="checkbox" value="" id="sale">
+                                                <label class="form-check-label" for="sale">
+                                                    Sale
                                                 </label>
                                             </div>
                                         </div>
@@ -529,19 +459,19 @@
                                     <div class="col-lg-4 col-md-4">
                                         <div class="form-group">
                                             <label>Name</label>
-                                            <input type="text" name="name" class="form-control" placeholder="Name">
+                                            <input id="contact" type="text" name="name" class="form-control" placeholder="Name">
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-4">
                                         <div class="form-group">
                                             <label>Email</label>
-                                            <input type="email" name="email" class="form-control" placeholder="Email">
+                                            <input id="email" type="email" name="email" class="form-control" placeholder="Email">
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-4">
                                         <div class="form-group">
                                             <label>Phone</label>
-                                            <input type="text" name="name" class="form-control" placeholder="Phone">
+                                            <input id="phone" type="text" name="name" class="form-control" placeholder="Phone">
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
@@ -769,6 +699,18 @@
 <script src="assets/js/property-submit.js" ></script>
 <script  src="assets/js/app.js"></script>
 <script>
+    
+    document.getElementById('name').style.color = "black";
+    document.getElementById('price').style.color = "black";
+    document.getElementById('area').style.color = "black";
+    document.getElementById('address').style.color = "black";
+    document.getElementById('code').style.color = "black";
+    document.getElementById('age').style.color = "black";
+    document.getElementById('detail').style.color = "black";
+    document.getElementById('contact').style.color = "black";
+    document.getElementById('email').style.color = "black";
+    document.getElementById('phone').style.color = "black";
+
     $('document').ready(function(){
         console.log('submit prop');
         if(loggedin())
