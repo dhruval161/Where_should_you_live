@@ -325,7 +325,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="index.html">
+                                <a href="index.html" onclick="logout()">
                                     <i class="flaticon-logout"></i>Log Out
                                 </a>
                             </li>
@@ -346,109 +346,19 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
+                        <tr class="prop_row" id="row" style="visibility:hidden">
                             <td class="image">
                                 <a href="properties-details.html"><img alt="my-properties-3" src="assets/img/my-properties-3.jpg" class="img-fluid"></a>
                             </td>
                             <td>
                                 <div class="inner">
-                                    <a href="properties-details.html"><h2>Modern Family Home</h2></a>
-                                    <figure><i class="flaticon-facebook-placeholder-for-locate-places-on-maps"></i> 123 Kathal St. Tampa City,</figure>
-                                    <div class="tag price">$ 27,000</div>
+                                    <a href="properties-details.html"><h2 id="property">Modern Family Home</h2></a>
+                                    <figure><i id="location" class="flaticon-facebook-placeholder-for-locate-places-on-maps"></i></figure>
+                                    <div id="price" class="tag price">$ 27,000</div>
                                 </div>
                             </td>
                             <td class="hdn">14.02.2018</td>
-                            <td class="hdn">421</td>
-                            <td class="actions">
-                                <a href="#" class="edit"><i class="fa fa-pencil"></i>Edit</a>
-                                <a href="#"><i class="delete fa fa-trash-o"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="image">
-                                <a href="properties-details.html"><img alt="my-properties" src="assets/img/my-properties.jpg"></a>
-                            </td>
-                            <td>
-                                <div class="inner">
-                                    <a href="properties-details.html"><h2>Beautiful Single Home</h2></a>
-                                    <figure><i class="flaticon-facebook-placeholder-for-locate-places-on-maps"></i> 123 Kathal St. Tampa City,</figure>
-                                    <div class="tag price">$ 315,000</div>
-                                </div>
-                            </td>
-                            <td class="hdn">4.01.2018</td>
-                            <td class="hdn">266</td>
-                            <td class="actions">
-                                <a href="#" class="edit"><i class="fa fa-pencil"></i>Edit</a>
-                                <a href="#"><i class="delete fa fa-trash-o"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="image">
-                                <a href="properties-details.html"><img alt="my-properties-2" src="assets/img/my-properties-2.jpg"></a>
-                            </td>
-                            <td>
-                                <div class="inner">
-                                    <a href="properties-details.html"><h2>Masons Villas</h2></a>
-                                    <figure><i class="flaticon-facebook-placeholder-for-locate-places-on-maps"></i> 123 Kathal St. Tampa City,</figure>
-                                    <div class="tag price">$ 62,000</div>
-                                </div>
-                            </td>
-                            <td class="hdn">24.03.2018</td>
-                            <td class="hdn">45</td>
-                            <td class="actions">
-                                <a href="#" class="edit"><i class="fa fa-pencil"></i>Edit</a>
-                                <a href="#"><i class="delete fa fa-trash-o"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="image">
-                                <a href="properties-details.html"><img alt="my-properties-3" src="assets/img/my-properties-3.jpg"></a>
-                            </td>
-                            <td>
-                                <div class="inner">
-                                    <a href="properties-details.html"><h2>Modern Family Home</h2></a>
-                                    <figure><i class="flaticon-facebook-placeholder-for-locate-places-on-maps"></i> 123 Kathal St. Tampa City,</figure>
-                                    <div class="tag price">$ 27,000</div>
-                                </div>
-                            </td>
-                            <td class="hdn">14.02.2018</td>
-                            <td class="hdn">421</td>
-                            <td class="actions">
-                                <a href="#" class="edit"><i class="fa fa-pencil"></i>Edit</a>
-                                <a href="#"><i class="delete fa fa-trash-o"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="image">
-                                <a href="properties-details.html"><img alt="my-properties" src="assets/img/my-properties.jpg"></a>
-                            </td>
-                            <td>
-                                <div class="inner">
-                                    <a href="properties-details.html"><h2>Beautiful Single Home</h2></a>
-                                    <figure><i class="flaticon-facebook-placeholder-for-locate-places-on-maps"></i> 123 Kathal St. Tampa City,</figure>
-                                    <div class="tag price">$ 315,000</div>
-                                </div>
-                            </td>
-                            <td class="hdn">4.01.2018</td>
-                            <td class="hdn">266</td>
-                            <td class="actions">
-                                <a href="#" class="edit"><i class="fa fa-pencil"></i>Edit</a>
-                                <a href="#"><i class="delete fa fa-trash-o"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="image">
-                                <a href="properties-details.html"><img alt="my-properties-2" src="assets/img/my-properties-2.jpg"></a>
-                            </td>
-                            <td>
-                                <div class="inner">
-                                    <a href="properties-details.html"><h2>Masons Villas</h2></a>
-                                    <figure><i class="flaticon-facebook-placeholder-for-locate-places-on-maps"></i> 123 Kathal St. Tampa City,</figure>
-                                    <div class="tag price">$ 62,000</div>
-                                </div>
-                            </td>
-                            <td class="hdn">24.03.2018</td>
-                            <td class="hdn">45</td>
+                            <td id="views" class="hdn">421</td>
                             <td class="actions">
                                 <a href="#" class="edit"><i class="fa fa-pencil"></i>Edit</a>
                                 <a href="#"><i class="delete fa fa-trash-o"></i></a>
@@ -674,8 +584,56 @@
 <script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0N5pbJN10Y1oYFRd0MJ_v2g8W2QT74JE"></script>
 <script src="assets/js/ie-emulation-modes-warning.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
 <!-- Custom JS Script -->
-<script  src="assets/js/app.js"></script>
+<script src="assets/js/initilize.js"></script>
+<script src="assets/js/userdetails.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+    $('document').ready(function(){
+
+        console.log("from user properties");
+        if(loggedin())
+        {                       
+            console.log(getuserdetails());
+        }
+        else
+        {
+            console.log("redirect");
+            setTimeout(function(){
+                location.href = "login.html";
+            },100);
+        }
+
+        // read user details
+        console.log("users/" + getuserdetails() + "/property/");
+        var userdet = firebase.database().ref("users/" + getuserdetails() + "/property/");
+        let iterator = 0;
+        userdet.on("value", function(data) {
+        let val = data.val();
+            for(x in val)
+            {
+            console.log(data.numChildren());
+            let propdet = firebase.database().ref("properties/" + val[x] )
+            propdet.on("value", function(propdata) {
+            let view = Math.floor(Math.random() * 70) + 2;
+            document.getElementById("row").style.visibility = "visible";
+            document.getElementById("property").innerText = propdata.val().name;
+            document.getElementById("price").innerText = propdata.val().price;
+            document.getElementById("location").innerText = propdata.val().city;
+            document.getElementById("views").innerHTML = view;
+            iterator += 1;
+            if(iterator== data.numChildren())
+            {return;}
+            $clone = $('.prop_row:last').clone();
+            $clone.insertAfter('.prop_row:last');
+            });
+
+
+            }
+              });
+    });
+</script>
 
 </body>
 

@@ -1,40 +1,51 @@
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // User is signed in.
-
     var user = firebase.auth().currentUser;
-   
-    global1 = user.email;
 
-    localStorage.setItem("UID",user.uid);
-    console.log(localStorage.getItem(("UID")));
-
-    // check whether the user details already exist otherwirse add it
+    // check whether the user details already exist otherwise add it
     var ref = firebase.database().ref("users/");
+
+
+
 
     ref.on("value", function(snapshot) {
     console.log(snapshot.val());
 
-    if(localStorage.getItem(("UID")) in snapshot.val())
+
+    if(user.uid in snapshot.val())
     {
-    console.log(localStorage.getItem(("UID")) + "is in snapshot");
+    console.log(user.uid + "is in snapshot");
+
+    console.log(user.emailVerified);
+    if(user.emailVerified==false)
+    {
+        send_verification(user);
+        window.alert("Verify your account!! Verification mail is sent!!");
+        return;
+    }
+    localStorage.setItem("UID",user.uid);
+    console.log(localStorage.getItem(("UID")));
+
     window.location.href = 'index.html';
     }
 
     else
     {
-    console.log(localStorage.getItem(("UID")) + "is not present in snippet");
-    var userref = firebase.database().ref("users/" + localStorage.getItem(("UID")));
+    console.log(user.uid + "is not present in snippet");
+    console.log(user.emailVerified);
+
+    var userref = firebase.database().ref("users/" + user.uid);
     userref.set({
         name : document.getElementById("r_name_field").value,
         email: document.getElementById("r_email_field").value
     });
 
-    var emailreg = firebase.database().ref("emailreg/" + localStorage.getItem(("UID")));
-    userref.set({
-        name : document.getElementById("r_name_field").value,
-        email: document.getElementById("r_email_field").value
-    });
+    if(user.emailVerified==false)
+    {        
+        logout();
+        return;
+    }
 
     }
 
@@ -63,12 +74,14 @@ function login(){
   userEmail = document.getElementById("email_field").value;
   var userPass = document.getElementById("password_field").value;
 
+
   firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE)
   .then(function() {
     // Existing and future Auth states are now persisted in the current
     // session only. Closing the window would clear any existing state even
     // if a user forgets to sign out.
     // ...
+
     // New sign-in will be persisted with session persistence.
     return firebase.auth().signInWithEmailAndPassword(userEmail, userPass);
   })
@@ -117,6 +130,8 @@ function createaccount()
   }
   else
   {
+
+
     var ret = firebase.auth().createUserWithEmailAndPassword(r_email, r_password).catch(function(error) {
     // Handle Errors here.
     var errorCode = error.code;
@@ -124,6 +139,7 @@ function createaccount()
     window.alert("Error : " + errorMessage);
     // ...
     });
+    var user = firebase.auth().currentUser;
 
   }
 }
@@ -179,9 +195,17 @@ let val =data.val();
     }
 });
 
-
-
-
 }
+
+function send_verification(user)
+{
+user.sendEmailVerification().then(function() {
+    console.log("Email Sent");
+  // Email sent.
+}).catch(function(error) {
+  // An error happened.
+});
+}
+
 
    
