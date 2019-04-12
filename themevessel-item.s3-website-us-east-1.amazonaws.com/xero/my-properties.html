@@ -601,10 +601,9 @@
 <script src="assets/js/app.js"></script>
 <script>
     $('document').ready(function(){
-
         console.log("from user properties");
         if(loggedin())
-        {
+        {                       
             console.log(getuserdetails());
         }
         else
@@ -614,7 +613,6 @@
                 location.href = "login.html";
             },100);
         }
-
         // read user details
         console.log("users/" + getuserdetails() + "/property/");
         var userdet = firebase.database().ref("users/" + getuserdetails() + "/property/");
@@ -626,7 +624,7 @@
                 console.log(data.numChildren());
                 let propdet = firebase.database().ref("properties/" + val[x] )
                 propdet.on("value", function(propdata) {
-
+                    
                     let property = propdata.val();
                     let view = Math.floor(Math.random() * 70) + 2;
                     document.getElementById("prop").style.visibility = "visible";
@@ -637,15 +635,11 @@
                     iterator += 1;
                     if(iterator== data.numChildren())
                     {return;}
-
+                    
                     $clone = $('#prop').clone();
-
                     $clone.attr("id","123456789");
                     $clone.insertAfter('#prop');
-
                 });
-
-
             }
         });
     });
