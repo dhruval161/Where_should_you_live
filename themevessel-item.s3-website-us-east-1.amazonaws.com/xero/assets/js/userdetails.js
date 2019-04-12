@@ -56,3 +56,35 @@ userdet.set({
 });
 location.href = "user-profile.html";
 }
+
+function delete_property()
+{
+    var prop_name = document.getElementById("delete_name").value;
+    var prop_price = document.getElementById("delete_price").value;
+    console.log(prop_name);
+    var userdet = firebase.database().ref("users/" + getuserdetails() + "/property/");
+    let iterator = 0;
+    userdet.on("value", function(data) {
+    let val = data.val();
+        for(x in val)
+        {
+            let propdet = firebase.database().ref("properties/" + val[x] )
+            propdet.on("value", function(propdata) {
+            if(prop_name == propdata.val().name && prop_price == propdata.val().price)
+            {
+            console.log(propdata.val().name);
+            console.log(x);
+            userdet.child(x).remove();
+            console.log("Property Removed");
+            window.location.href = "my-properties.html";
+            return;
+            }
+
+
+        });
+
+        }
+});
+
+
+}
