@@ -274,10 +274,10 @@
 <div class="sub-banner overview-bgi">
     <div class="container">
         <div class="breadcrumb-area">
-            <h1>Property Detail 1</h1>
+            <h1>Property Details</h1>
             <ul class="breadcrumbs">
                 <li><a href="index.html">Home</a></li>
-                <li class="active">Property Detail 1</li>
+                <li class="active">Property Details</li>
             </ul>
         </div>
     </div>
@@ -294,11 +294,11 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="pull-left">
-                                    <h3>Beautiful Single Home</h3>
-                                    <p><i class="fa fa-map-marker"></i> 20/F Green Road, Dhanmondi, Dhaka</p>
+                                    <h3 id="name" >Beautiful Single Home</h3>
+                                    <p><i class="fa fa-map-marker"></i> <span id="address"></span> </p>
                                 </div>
                                 <div class="p-r">
-                                    <h3>$420,00</h3>
+                                    <h3 id="price">$420,00</h3>
                                     <p><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p>
                                 </div>
                             </div>
@@ -307,139 +307,22 @@
                     <!-- main slider carousel items -->
                     <div class="carousel-inner">
                         <div class="active item carousel-item" data-slide-number="0">
-                            <img src="assets/img/property-4.jpg" class="img-fluid" alt="property-4">
+                            <img id="imageprop" src="assets/img/property-4.jpg" class="img-fluid" alt="property-4">
                         </div>
-                        <div class="item carousel-item" data-slide-number="1">
-                            <img src="assets/img/property-6.jpg" class="img-fluid" alt="property-6">
-                        </div>
-                        <div class="item carousel-item" data-slide-number="2">
-                            <img src="assets/img/property-1.jpg" class="img-fluid" alt="property-1">
-                        </div>
-                        <div class="item carousel-item" data-slide-number="4">
-                            <img src="assets/img/property-5.jpg" class="img-fluid" alt="property-5">
-                        </div>
-                        <div class="item carousel-item" data-slide-number="5">
-                            <img src="assets/img/property-8.jpg" class="img-fluid" alt="property-8">
-                        </div>
-
-                        <a class="carousel-control left" href="#propertiesDetailsSlider" data-slide="prev"><i class="fa fa-angle-left"></i></a>
-                        <a class="carousel-control right" href="#propertiesDetailsSlider" data-slide="next"><i class="fa fa-angle-right"></i></a>
+                        
 
                     </div>
                     <!-- main slider carousel nav controls -->
                     <ul class="carousel-indicators smail-properties list-inline nav nav-justified">
-                        <li class="list-inline-item active">
+                        <!--<li class="list-inline-item active">
                             <a id="carousel-selector-0" class="selected" data-slide-to="0" data-target="#propertiesDetailsSlider">
                                 <img src="assets/img/property-4.jpg" class="img-fluid" alt="property-4">
                             </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a id="carousel-selector-1" data-slide-to="1" data-target="#propertiesDetailsSlider">
-                                <img src="assets/img/property-6.jpg" class="img-fluid" alt="property-6">
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a id="carousel-selector-2" data-slide-to="2" data-target="#propertiesDetailsSlider">
-                                <img src="assets/img/property-1.jpg" class="img-fluid" alt="property-1">
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a id="carousel-selector-3" data-slide-to="3" data-target="#propertiesDetailsSlider">
-                                <img src="assets/img/property-5.jpg" class="img-fluid" alt="property-5">
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a id="carousel-selector-4" data-slide-to="4" data-target="#propertiesDetailsSlider">
-                                <img src="assets/img/property-8.jpg" class="img-fluid" alt="property-8">
-                            </a>
-                        </li>
+                        </li>-->
+                        
                     </ul>
                 </div>
-                <!-- Search area start -->
-                <div class="widget-2 search-area d-lg-none d-xl-none">
-                    <h5 class="sidebar-title">Advanced Search</h5>
-                    <div class="search-area-inner">
-                        <div class="search-contents ">
-                            <form method="GET">
-                                <div class="form-group">
-                                    <label>Area From</label>
-                                    <select class="selectpicker search-fields" name="area">
-                                        <option>Area From</option>
-                                        <option>1500</option>
-                                        <option>1200</option>
-                                        <option>900</option>
-                                        <option>600</option>
-                                        <option>300</option>
-                                        <option>100</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label>Property Status</label>
-                                    <select class="selectpicker search-fields" name="Status">
-                                        <option>Property Status</option>
-                                        <option>For Sale</option>
-                                        <option>For Rent</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label>Location</label>
-                                    <select class="selectpicker search-fields" name="Location">
-                                        <option>Location</option>
-                                        <option>United Kingdom</option>
-                                        <option>American Samoa</option>
-                                        <option>Belgium</option>
-                                        <option>Canada</option>
-                                        <option>Delaware</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label>Property Types</label>
-                                    <select class="selectpicker search-fields" name="types">
-                                        <option>Property Types</option>
-                                        <option>Residential</option>
-                                        <option>Commercial</option>
-                                        <option>Land</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label>Bedrooms</label>
-                                    <select class="selectpicker search-fields" name="bedrooms">
-                                        <option>Bedrooms</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                        <option>6</option>
-                                        <option>7</option>
-                                        <option>8</option>
-                                        <option>9</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label>2 Bathrooms</label>
-                                    <select class="selectpicker search-fields" name="bedrooms">
-                                        <option>2 Bathrooms</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                    </select>
-                                </div>
-                                <br>
-                                <div class="form-group">
-                                    <label>Price</label>
-                                    <div class="range-slider">
-                                        <div data-min="0" data-max="150000" data-unit="USD" data-min-name="min_price" data-max-name="max_price" class="range-slider-ui ui-slider" aria-disabled="false"></div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </div>
-                                <br/>
-                                <button class="search-button btn-md btn-color">Search</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+                
                 <!-- Tabbing box start -->
                 <div class="tabbing tabbing-box mb-60">
                     <ul class="nav nav-tabs" id="carTab" role="tablist">
@@ -452,43 +335,21 @@
                         <li class="nav-item">
                             <a class="nav-link" id="three-tab" data-toggle="tab" href="#three" role="tab" aria-controls="three" aria-selected="true">Details</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="4-tab" data-toggle="tab" href="#4" role="tab" aria-controls="4" aria-selected="true">Video</a>
-                        </li>
+                        
                         <li class="nav-item">
                             <a class="nav-link" id="5-tab" data-toggle="tab" href="#5" role="tab" aria-controls="5" aria-selected="true">Location</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="6-tab" data-toggle="tab" href="#6" role="tab" aria-controls="6" aria-selected="true">Related Properties</a>
-                        </li>
+                        
                     </ul>
                     <div class="tab-content" id="carTabContent">
                         <div class="tab-pane fade active show" id="one" role="tabpanel" aria-labelledby="one-tab">
                             <h3 class="heading">Property Description</h3>
-                           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus tincidunt aliquam. Aliquam gravida massa at sem vulputate interdum et vel eros. Maecenas eros enim, tincidunt vel turpis vel,dapibus tempus nulla. Donec vel nulla dui. Pellentesque sed ante sed ligula hendrerit condimentum.
-                            Suspendisse rhoncus fringilla ipsum quis porta. Morbi tincidunt viverra pharetra.</p>
-                            <p>Vestibulum vel mauris et odio lobortis laoreet eget eu magna. Proin mauris erat, luctus at nulla ut, lobortis mattis magna. Morbi a arcu lacus. Maecenas tristique velit vitae nisi consectetur, in mattis diam sodales. Mauris sagittis sem mattis justo bibendum, a eleifend dolor facilisis. Mauris
-                                nec pharetra tortor, ac aliquam felis. Nunc pretium erat sed quam consectetur fringilla.</p>
-                            <p>Aliquam ultricies nunc porta metus interdum mollis. Donec porttitor libero augue, vehicula tincidunt lectus placerat a. Sed tincidunt dolor non sem dictum dignissim. Nulla vulputate orci felis, ac ornare purus ultricies a. Fusce euismod magna orci, sit amet aliquam turpis dignissim ac. In at
-                                tortor at ligula pharetra sollicitudin. Sed tincidunt, purus eget laoreet elementum, felis est pharetra ante, tincidunt feugiat libero enim sed risus.</p>
-                            <p>Sed at leo sit amet mi bibendum aliquam. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent cursus varius odio, non faucibus dui. Nunc vehicula lectus sed velit suscipit aliquam vitae eu ipsum. adipiscing elit.</p>
+                           <p id="desc"> porta. Morbi tincidunt viverra pharetra.</p>
                         </div>
                         <div class="tab-pane fade" id="two" role="tabpanel" aria-labelledby="two-tab">
                             <div class="floor-plans mb-60">
                                 <h3 class="heading">Floor Plans</h3>
-                                <table>
-                                    <tbody><tr>
-                                        <td><strong>Size</strong></td>
-                                        <td><strong>Rooms</strong></td>
-                                        <td><strong>2 Bathrooms</strong></td>
-                                    </tr>
-                                    <tr>
-                                        <td>1600</td>
-                                        <td>3</td>
-                                        <td>2</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
+                                
                                 <img src="assets/img/floor-plans.png" alt="floor-plans" class="img-fluid">
                             </div>
                         </div>
@@ -499,247 +360,70 @@
                                     <div class="col-md-4 col-sm-6">
                                         <ul>
                                             <li>
-                                                <strong>Property Id:</strong>215
+                                                <strong>Land area:</strong> <span id="area"></span> ft2
+                                            </li>
+                                            
+                                            <li>
+                                                <strong>Bathrooms:</strong> <span id="bath"></span> 
                                             </li>
                                             <li>
-                                                <strong>Price:</strong>$1240/ Month
-                                            </li>
-                                            <li>
-                                                <strong>Property Type:</strong>House
-                                            </li>
-                                            <li>
-                                                <strong>Bathrooms:</strong>3
-                                            </li>
-                                            <li>
-                                                <strong>Bathrooms:</strong>2
+                                                <strong>Bedrooms:</strong> <span id="bed"></span>
                                             </li>
                                         </ul>
                                     </div>
                                     <div class="col-md-4 col-sm-6">
                                         <ul>
+                            
                                             <li>
-                                                <strong>Property Lot Size:</strong>800 ft2
+                                                <strong>Property Age:</strong><span id="age"></span> year(s)
                                             </li>
                                             <li>
-                                                <strong>Land area:</strong>230 ft2
+                                                <strong>Price:</strong><span id="price2"></span>
                                             </li>
+                                            
+                                            
                                             <li>
-                                                <strong>Year Built:</strong>2018
+                                                <strong>Pincode:</strong><span id="code"></span>
                                             </li>
-                                            <li>
-                                                <strong>Available From:</strong>2018
-                                            </li>
-                                            <li>
-                                                <strong>Garages:</strong>2
-                                            </li>
+                                    
                                         </ul>
                                     </div>
                                     <div class="col-md-4 col-sm-6">
                                         <ul>
                                             <li>
-                                                <strong>Sold:</strong>Yes
+                                                <strong>City:</strong><span id="city"></span>
                                             </li>
+
                                             <li>
-                                                <strong>City:</strong>Usa
+                                                <strong>Property Owner:</strong> <span id="contact"></span>
                                             </li>
+
                                             <li>
-                                                <strong>Parking:</strong>Yes
+                                                <strong>Contact:</strong><span id="email"></span>
                                             </li>
-                                            <li>
-                                                <strong>Property Owner:</strong>Sohel Rana
-                                            </li>
-                                            <li>
-                                                <strong>Zip Code: </strong>2451
-                                            </li>
+                                            
+                                            
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane fade " id="4" role="tabpanel" aria-labelledby="4-tab">
-                            <div class="property-video">
-                                <h3 class="heading">Property Vedio</h3>
-                                <iframe src="https://www.youtube.com/embed/m5_AKjDdqaU"></iframe>
-                            </div>
-                        </div>
+                        
                         <div class="tab-pane fade " id="5" role="tabpanel" aria-labelledby="5-tab">
                             <div class="section location">
                                 <h3 class="heading">Property Location</h3>
-                                <div class="map">
+                                <div id="map"></div>
+                                <!--<div class="map">
                                     <div id="contactMap" class="contact-map"></div>
-                                </div>
+                                </div>-->
                             </div>
                         </div>
-                        <div class="tab-pane fade " id="6" role="tabpanel" aria-labelledby="6-tab">
-                            <div class="related-properties">
-                                <h3 class="heading">Related Properties</h3>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="property-box">
-                                            <div class="property-thumbnail">
-                                                <a href="properties-details.html" class="property-img">
-                                                    <div class="tag button alt featured">Featured</div>
-                                                    <div class="price-ratings-box">
-                                                        <p class="price">
-                                                            $178,000
-                                                        </p>
-                                                        <div class="ratings">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star-o"></i>
-                                                        </div>
-                                                    </div>
-                                                    <img src="assets/img/property-2.jpg" alt="property-2" class="img-fluid">
-                                                </a>
-                                                <div class="property-overlay">
-                                                    <a href="properties-details.html" class="overlay-link">
-                                                        <i class="fa fa-link"></i>
-                                                    </a>
-                                                    <a class="overlay-link property-video" title="Test Title">
-                                                        <i class="fa fa-video-camera"></i>
-                                                    </a>
-                                                    <div class="property-magnify-gallery">
-                                                        <a href="assets/img/property-2.jpg" class="overlay-link">
-                                                            <i class="fa fa-expand"></i>
-                                                        </a>
-                                                        <a href="assets/img/property-6.jpg" class="hidden"></a>
-                                                        <a href="assets/img/property-4.jpg" class="hidden"></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="detail">
-                                                <h1 class="title">
-                                                    <a href="properties-details.html">Modern Family Home</a>
-                                                </h1>
-                                                <div class="location">
-                                                    <a href="properties-details.html">
-                                                        <i class="fa fa-map-marker"></i>123 Kathal St. Tampa City,
-                                                    </a>
-                                                </div>
-                                                <ul class="facilities-list clearfix">
-                                                    <li>
-                                                        <i class="flaticon-square-layouting-with-black-square-in-east-area"></i> 3 Bedrooms
-                                                    </li>
-                                                    <li>
-                                                        <i class="flaticon-bath"></i> 2 Bathrooms
-                                                    </li>
-                                                    <li>
-                                                        <i class="flaticon-square-layouting-with-black-square-in-east-area"></i> Sq Ft:3400
-                                                    </li>
-                                                    <li>
-                                                        <i class="flaticon-car-repair"></i> 1 Garage
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="footer">
-                                                <a href="#">
-                                                    <i class="fa fa-user"></i> Jhon Doe
-                                                </a>
-                                                <span>
-                                                     <i class="fa fa-calendar-o"></i> 2 years ago
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="property-box">
-                                            <div class="property-thumbnail">
-                                                <a href="properties-details.html" class="property-img">
-                                                    <div class="tag button alt featured">Featured</div>
-                                                    <div class="price-ratings-box">
-                                                        <p class="price">
-                                                            $178,000
-                                                        </p>
-                                                        <div class="ratings">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star-o"></i>
-                                                        </div>
-                                                    </div>
-                                                    <img src="assets/img/property-7.jpg" alt="property-7" class="img-fluid">
-                                                </a>
-                                                <div class="property-overlay">
-                                                    <a href="properties-details.html" class="overlay-link">
-                                                        <i class="fa fa-link"></i>
-                                                    </a>
-                                                    <a class="overlay-link property-video" title="Test Title">
-                                                        <i class="fa fa-video-camera"></i>
-                                                    </a>
-                                                    <div class="property-magnify-gallery">
-                                                        <a href="assets/img/property-7.jpg" class="overlay-link">
-                                                            <i class="fa fa-expand"></i>
-                                                        </a>
-                                                        <a href="assets/img/property-6.jpg" class="hidden"></a>
-                                                        <a href="assets/img/property-4.jpg" class="hidden"></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="detail">
-                                                <h1 class="title">
-                                                    <a href="properties-details.html">Relaxing Apartment</a>
-                                                </h1>
-                                                <div class="location">
-                                                    <a href="properties-details.html">
-                                                        <i class="fa fa-map-marker"></i>123 Kathal St. Tampa City,
-                                                    </a>
-                                                </div>
-                                                <ul class="facilities-list clearfix">
-                                                    <li>
-                                                        <i class="flaticon-square-layouting-with-black-square-in-east-area"></i> 3 Bedrooms
-                                                    </li>
-                                                    <li>
-                                                        <i class="flaticon-bath"></i> 2 Bathrooms
-                                                    </li>
-                                                    <li>
-                                                        <i class="flaticon-square-layouting-with-black-square-in-east-area"></i> Sq Ft:3400
-                                                    </li>
-                                                    <li>
-                                                        <i class="flaticon-car-repair"></i> 1 Garage
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="footer">
-                                                <a href="#">
-                                                    <i class="fa fa-user"></i> Jhon Doe
-                                                </a>
-                                                <span>
-                                                    <i class="fa fa-calendar-o"></i> 2 years ago
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
                 <!-- Amenities box start -->
                 <div class="amenities-box mb-60">
-                    <h3 class="heading">Condition</h3>
-                    <div class="row">
-                        <div class="col-md-4 col-sm-6">
-                            <ul>
-                                <li><span><i class="flaticon-bed"></i> 3 Beds</span></li>
-                                <li><span><i class="flaticon-bath"></i> 2 Bathroom</span></li>
-                            </ul>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <ul>
-                                <li><span><i class="flaticon-car-repair"></i> 1 Garage</span></li>
-                                <li><span><i class="flaticon-balcony-and-door"></i>1 Balcony</span></li>
-                            </ul>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <ul>
-                                <li><span><i class="flaticon-square-layouting-with-black-square-in-east-area"></i> 4800 sq ft</span></li>
-                                <li><span><i class="flaticon-monitor"></i> TV</span></li>
-                            </ul>
-                        </div>
-                    </div>
+                    <h3 class="heading" id="sell"></h3>
                 </div>
                 <!-- Features opions start -->
                 <div class="features-opions mb-60">
@@ -747,23 +431,13 @@
                     <div class="row">
                         <div class="col-md-4 col-sm-6">
                             <ul>
-                                <li>
-                                    <i class="flaticon-air-conditioner"></i>
-                                    Air conditioning
-                                </li>
-                                <li>
-                                    <i class="flaticon-wifi-connection-signal-symbol"></i>
-                                    Wifi
-                                </li>
-                                <li>
+                                
+                                <li id="swimming">
                                     <i class="flaticon-swimmer"></i>
                                     Swimming Pool
                                 </li>
-                                <li>
-                                    <i class="flaticon-bed"></i>
-                                    Double Bed
-                                </li>
-                                <li>
+                                
+                                <li id="balcony">
                                     <i class="flaticon-balcony-and-door"></i>
                                     Balcony
                                 </li>
@@ -772,49 +446,20 @@
                         </div>
                         <div class="col-md-4 col-sm-6">
                             <ul>
-                                <li>
-                                    <i class="flaticon-old-typical-phone"></i>
-                                    Telephone
-                                </li>
-                                <li>
-                                    <i class="flaticon-car-repair"></i>
-                                    Garage
-                                </li>
-                                <li>
+                                  
+                                <li id="parking">
                                     <i class="flaticon-parking"></i>
                                     Parking
                                 </li>
-                                <li>
-                                    <i class="flaticon-monitor"></i>
-                                    TV
-                                </li>
-                                <li>
-                                    <i class="flaticon-theatre-masks"></i>
-                                    Home Theater
-                                </li>
+                                
+                                
                             </ul>
                         </div>
                         <div class="col-md-4 col-sm-6">
                             <ul>
-                                <li>
-                                    <i class="fa fa-clock-o"></i>
-                                    Alarm
-                                </li>
-                                <li>
-                                    <i class="flaticon-padlock"></i>
-                                    Security
-                                </li>
-                                <li>
-                                    <i class="flaticon-weightlifting"></i>
-                                    Gym
-                                </li>
-                                <li>
-                                    <i class="flaticon-idea"></i>
-                                    Electric Range
-                                </li>
-                                <li>
-                                    <i class="flaticon-green-park-city-space"></i>
-                                    Private space
+                                <li id="laundry">
+                                    <i class="fa fa-shirtsinbulk" aria-hidden="true"></i>
+                                    Laundry
                                 </li>
                             </ul>
                         </div>
@@ -1001,145 +646,8 @@
             </div>
             <div class="col-lg-4 col-md-12">
                 <div class="sidebar mbl">
-                    <!-- Search area start -->
-                    <div class="widget search-area d-none d-xl-block d-lg-block">
-                        <h5 class="sidebar-title">Advanced Search</h5>
-                        <div class="search-area-inner">
-                            <div class="search-contents ">
-                                <form method="GET">
-                                    <div class="form-group">
-                                        <label>Area From</label>
-                                        <select class="selectpicker search-fields" name="area">
-                                            <option>Area From</option>
-                                            <option>1500</option>
-                                            <option>1200</option>
-                                            <option>900</option>
-                                            <option>600</option>
-                                            <option>300</option>
-                                            <option>100</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Property Status</label>
-                                        <select class="selectpicker search-fields" name="Status">
-                                            <option>Property Status</option>
-                                            <option>For Sale</option>
-                                            <option>For Rent</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Location</label>
-                                        <select class="selectpicker search-fields" name="Location">
-                                            <option>Location</option>
-                                            <option>United Kingdom</option>
-                                            <option>American Samoa</option>
-                                            <option>Belgium</option>
-                                            <option>Canada</option>
-                                            <option>Delaware</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Property Types</label>
-                                        <select class="selectpicker search-fields" name="types">
-                                            <option>Property Types</option>
-                                            <option>Residential</option>
-                                            <option>Commercial</option>
-                                            <option>Land</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Bedrooms</label>
-                                        <select class="selectpicker search-fields" name="bedrooms">
-                                            <option>Bedrooms</option>
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                            <option>6</option>
-                                            <option>7</option>
-                                            <option>8</option>
-                                            <option>9</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>2 Bathrooms</label>
-                                        <select class="selectpicker search-fields" name="bedrooms">
-                                            <option>2 Bathrooms</option>
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                        </select>
-                                    </div>
-                                    <br>
-                                    <div class="form-group">
-                                        <label>Price</label>
-                                        <div class="range-slider">
-                                            <div data-min="0" data-max="150000" data-unit="USD" data-min-name="min_price" data-max-name="max_price" class="range-slider-ui ui-slider" aria-disabled="false"></div>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                    <br/>
-                                    <button class="search-button btn-md btn-color">Search</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- Categories start -->
-                    <div class="widget categories">
-                        <h5 class="sidebar-title">Categories</h5>
-                        <ul>
-                            <li><a href="#">Apartments<span>(12)</span></a></li>
-                            <li><a href="#">Houses<span>(8)</span></a></li>
-                            <li><a href="#">Family Houses<span>(23)</span></a></li>
-                            <li><a href="#">Offices<span>(5)</span></a></li>
-                            <li><a href="#">Villas<span>(63)</span></a></li>
-                            <li><a href="#">Other<span>(7)</span></a></li>
-                        </ul>
-                    </div>
-
-                    <!-- Recent posts start -->
-                    <div class="widget recent-posts">
-                        <h5 class="sidebar-title">Recent Properties</h5>
-                        <div class="media mb-4">
-                            <a href="properties-details.html">
-                                <img src="assets/img/sub-property/sub-property.jpg" alt="sub-property">
-                            </a>
-                            <div class="media-body align-self-center">
-                                <h5>
-                                    <a href="properties-details.html">Beautiful Single Home</a>
-                                </h5>
-                                <p>February 27, 2018</p>
-                                <p> <strong>$245,000</strong></p>
-                            </div>
-                        </div>
-                        <div class="media mb-4">
-                            <a href="properties-details.html">
-                                <img src="assets/img/sub-property/sub-property-2.jpg" alt="sub-property-2">
-                            </a>
-                            <div class="media-body align-self-center">
-                                <h5>
-                                    <a href="properties-details.html">Sweet Family Home</a>
-                                </h5>
-                                <p>February 27, 2018</p>
-                                <p> <strong>$245,000</strong></p>
-                            </div>
-                        </div>
-                        <div class="media">
-                            <a href="properties-details.html">
-                                <img src="assets/img/sub-property/sub-property-3.jpg" alt="sub-property-3">
-                            </a>
-                            <div class="media-body align-self-center">
-                                <h5>
-                                    <a href="properties-details.html">Real Luxury Villa</a>
-                                </h5>
-                                <p>February 27, 2018</p>
-                                <p> <strong>$245,000</strong></p>
-                            </div>
-                        </div>
-                    </div>
+                    
 
                     <!-- Social list start -->
                     <div class="social-list widget clearfix">
@@ -1481,44 +989,122 @@
 <script src="assets/js/leaflet-providers.js"></script>
 <script src="assets/js/leaflet.markercluster.js"></script>
 <script src="assets/js/slick.min.js"></script>
-<script src="assets/js/maps.js"></script>
+<!--<script src="assets/js/maps.js"></script>-->
 <script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0N5pbJN10Y1oYFRd0MJ_v2g8W2QT74JE"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0N5pbJN10Y1oYFRd0MJ_v2g8W2QT74JE&callback=initMap" async defer></script>
 <script src="assets/js/ie-emulation-modes-warning.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
+<script src="assets/js/initilize.js"></script>    
+
 <!-- Custom JS Script -->
 <script  src="assets/js/app.js"></script>
 
 <script>
+    var map;
+    
+    function initMap() {
+        // The location of Uluru
+        var uluru = {lat: -25.344, lng: 131.036};
+        // The map, centered at Uluru
+        var map = new google.maps.Map(
+            document.getElementById('map'), {zoom: 8, center: uluru});
+        // The marker, positioned at Uluru
+        var marker = new google.maps.Marker({position: uluru, map: map});
+    }
+
+
+    $('document').ready(function(){
+        let propertyId = document.location.search.substr(4); 
+        
+        var propRef = firebase.database().ref("properties/" + propertyId);
+        propRef.on("value", function(snapshot) {
+            property = snapshot.val();
+            console.log(property);
+
+            $("#imageprop").attr("src","https://firebasestorage.googleapis.com/v0/b/where-should-you-live.appspot.com/o/images%2F"+ propertyId +"?alt=media&token=3e4b4997-6a52-4106-bc9e-34b0cd025e04");
+
+            $("#desc").text(property.detail);
+            $("#price").text("$ "+property.price);
+            $("#price2").text("$ "+property.price);
+            $("#name").text(property.name);
+            $("#area").text(property.area);
+            $("#bath").text(property.bathroom);
+            $("#bed").text(property.bedroom);
+            $("#city").text(property.city);
+            $("#age").text(property.age);
+            $("#code").text(property.code);
+            $("#contact").text(property.contact);
+            $("#email").text(property.email);
+            $("#address").text(property.address);
+
+            if(property.rent == true)
+            {
+                $("#sell").text("for Rent");
+            }
+            else
+            {
+                $("#sell").text("for Sale");
+            }
+
+            if(property.swimmingpool == false)
+            {
+                $("#swimming").hide();
+            }
+            if(property.windowcovering == false)
+            {
+                $("#balcony").hide();
+            }
+            if(property.freeparking == false)
+            {
+                $("#parking").hide();
+            }
+            if(property.laundryroom == false)
+            {
+                $("#laundry").hide();
+            }
+
+            var location = {lat: property.latitude, lng: property.longitude};
+            var map = new google.maps.Map(
+                document.getElementById('map'), {zoom: 12, center: location});
+                // The marker, positioned at Uluru
+                var marker = new google.maps.Marker({position: location, map: map});
+
+        }, function (error) {
+           console.log("Error: " + error.code);
+        });
+
+    });
+
 function calculate_mortgage()
 {
-prop_price = document.getElementById("prop_price").value;
-rate = document.getElementById("rate").value;
-period = document.getElementById("period").value;
+    prop_price = document.getElementById("prop_price").value;
+    rate = document.getElementById("rate").value;
+    period = document.getElementById("period").value;
 
 
-if(prop_price.length==0 || rate.length==0 || period.length==0)
-{
-    window.alert("Enter the data fields");
-    return;
-}
+    if(prop_price.length==0 || rate.length==0 || period.length==0)
+    {
+        window.alert("Enter the data fields");
+        return;
+    }
 
-prop_price = parseFloat(prop_price);
-rate = parseFloat(rate);
-period = parseFloat(period);
+    prop_price = parseFloat(prop_price);
+    rate = parseFloat(rate);
+    period = parseFloat(period);
 
-if(isNaN(prop_price)||prop_price<0||isNaN(rate)||rate<0||isNaN(period)||period<0)
-{
-    window.alert("Enter the data correctly");
-    return;
-}
+    if(isNaN(prop_price)||prop_price<0||isNaN(rate)||rate<0||isNaN(period)||period<0)
+    {
+        window.alert("Enter the data correctly");
+        return;
+    }
 
-rate = rate/12;
+    rate = rate/12;
 
-num = (rate*((1+rate)**(period)))/(((1+rate)**(period))-1);
-mortage_val = parseInt(prop_price*num);
+    num = (rate*((1+rate)**(period)))/(((1+rate)**(period))-1);
+    mortage_val = parseInt(prop_price*num);
 
 
-document.getElementById("mort_val").value = mortage_val
+    document.getElementById("mort_val").value = mortage_val
 
 }
 
