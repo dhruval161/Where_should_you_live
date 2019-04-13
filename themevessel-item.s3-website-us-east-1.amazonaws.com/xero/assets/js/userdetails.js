@@ -57,6 +57,7 @@ userdet.set({
 location.href = "user-profile.html";
 }
 
+/*
 function delete_property()
 {
     var prop_name = document.getElementById("delete_name").value;
@@ -88,3 +89,90 @@ function delete_property()
 
 
 }
+*/
+
+
+function showmyprop()
+{
+
+        var prev;
+        // read user details
+        console.log("users/" + getuserdetails() + "/property/");
+        var userdet = firebase.database().ref("users/" + getuserdetails() + "/property/");
+        var iterator = 0;
+        var first_id;
+        userdet.on("value", function(data) {
+        let val = data.val();
+            for(x in val)
+            {
+                console.log(data.numChildren());
+                if(iterator>data.numChildren()){iterator=0;}
+
+
+
+                let propdet = firebase.database().ref("properties/" + val[x] )
+                propdet.on("value", function(propdata) {
+
+                    let property = propdata.val();
+                    let view = Math.floor(Math.random() * 70) + 2;
+                    document.getElementById("prop").style.visibility = "visible";
+                    document.getElementById("property").innerText = property.name;
+                    document.getElementById("price").innerText = "$ "+property.price;
+                    document.getElementById("location").innerText = property.city;
+                    document.getElementById("views").innerHTML = view;
+                    //console.log(propdet.getKey());
+                    console.log(iterator);
+                    if(iterator==0)
+                    {document.getElementById('del' + (iterator).toString()).id = propdet.getKey();first_id=propdet.getKey();}
+                    else
+                    {document.getElementById(prev).id = propdet.getKey()}
+                    prev = propdet.getKey();
+                    console.log(prev);
+
+
+
+
+                    iterator += 1;
+                    if(iterator== data.numChildren())
+                    {return;}
+
+
+
+                    $clone = $('#prop').clone();
+                    $clone.attr("id","123456789");
+                    $clone.insertAfter('#prop');
+                });
+            }
+        });
+
+
+
+
+}
+
+
+
+
+
+
+function getdelelement(result)
+{
+console.log(result.id)
+console.log(document.getElementsByClassName("deletebuttons")[0].id);
+
+var userRef = firebase.database().ref("users/" + getuserdetails() + "/property/");
+userRef.on("value", function(data) {
+let val = data.val();
+    for(x in val)
+    {
+        //console.log(val[x]);
+        if(val[x]==result.id){console.log("Property Found!!");userRef.child(x).remove();document.getElementsByClassName("deletebuttons")[0].id = "del0";window.location.href='my-properties.html';return;}
+    }
+    });    
+
+    console.log("property deleted!!");
+    return;
+   
+}
+
+
