@@ -1364,41 +1364,41 @@
             </div>
             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                 <div class="recent-posts footer-item">
-                    <h4>Recent Properties</h4>
-                    <div class="media mb-4">
+                    <h4>Recommended Properties</h4>
+                    <div id="rec1" class="media mb-4" style="visibility:hidden">
                         <a href="properties-details.html">
                             <img src="assets/img/sub-property/sub-property.jpg" alt="sub-property">
                         </a>
                         <div class="media-body align-self-center">
                             <h5>
-                                <a href="properties-details.html">Beautiful Single Home</a>
+                                <a id="recname1" href="properties-details.html">Beautiful Single Home</a>
                             </h5>
                             <p>February 27, 2018</p>
-                            <p> <strong>$245,000</strong></p>
+                            <p> <strong id="recprice1">$245,000</strong></p>
                         </div>
                     </div>
-                    <div class="media mb-4">
+                    <div id="rec2" class="media mb-4" style="visibility:hidden">
                         <a href="properties-details.html">
                             <img src="assets/img/sub-property/sub-property-2.jpg" alt="sub-property-2">
                         </a>
                         <div class="media-body align-self-center">
                             <h5>
-                                <a href="properties-details.html">Sweet Family Home</a>
+                                <a id="recname2" href="properties-details.html">Sweet Family Home</a>
                             </h5>
                             <p>February 27, 2018</p>
-                            <p> <strong>$245,000</strong></p>
+                            <p> <strong id="recprice2">$245,000</strong></p>
                         </div>
                     </div>
-                    <div class="media">
+                    <div id="rec3" class="media" style="visibility:hidden">
                         <a href="properties-details.html">
                             <img src="assets/img/sub-property/sub-property-3.jpg" alt="sub-property-3">
                         </a>
                         <div class="media-body align-self-center">
                             <h5>
-                                <a href="properties-details.html">Real Luxury Villa</a>
+                                <a id="recname3" href="properties-details.html">Real Luxury Villa</a>
                             </h5>
                             <p>February 27, 2018</p>
-                            <p> <strong>$245,000</strong></p>
+                            <p> <strong id="recprice3">$245,000</strong></p>
                         </div>
                     </div>
                 </div>
@@ -1588,51 +1588,150 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0N5pbJN10Y1oYFRd0MJ_v2g8W2QT74JE"></script>
 <script src="assets/js/ie-emulation-modes-warning.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
+<script src="assets/js/initilize.js"></script>    
+<script src="assets/js/userdetails.js"></script>    
 <!-- Custom JS Script -->
-<!--
-<script src="assets/js/initilize.js"></script>
-<script src="assets/js/loginuser.js"></script>
-<script>
-    console.log("inline script");
-    
-    $('document').ready(function(){
-        console.log("from index");
-        console.log(getuserdetails());
-    });
-    
-</script>
--->
-<!--<script src="assets/js/initilize.js"></script>-->
+
 <script  src="assets/js/app.js"></script>
+    <script>
+    $('document').ready(function(){
+        let arr = [];
+        let num_child;
+        var cosine_sim = 0;
+        let indexes = [];
+        console.log("from user properties");
+        if(loggedin())
+        {
+            console.log(getuserdetails());
 
-<!--
-<script>
-    var ref = firebase.database().ref("users/");
+        // read user properties
 
-    ref.on("value", function(snapshot) {
-    console.log(snapshot.val());
+        console.log("users/" + getuserdetails() + "/property/");
+        var userdet = firebase.database().ref("users/" + getuserdetails() + "/property/");
+        let iterator = 1;
+        user_houses = [];
+        userdet.on("value", function(data) {
+        let val = data.val();
+            for(x in val)
+            {
+            indexes.push(val[x]);
 
-    if("1234" in snapshot.val())
-    {
-    console.log("12345 is in snapshot");
-    }
+            console.log(data.numChildren());
+            let propdet = firebase.database().ref("properties/" + val[x] )
+            propdet.on("value", function(propdata) {
+            console.log(propdata.val().name);
+            //console.log(iterator);
+            arr.push(propdata.val())
+            if(iterator==data.numChildren())
+            {
+            find_similar_houses(arr,data.numChildren(),indexes);
+            return;}
+            iterator+=1;
 
-    else
-    {
-    console.log("12345 not present ");
-    }
-    for(user in snapshot.val())
-    {
-    console.log(user);
-    }
+            });
 
 
-    }, function (error) {
-    console.log("Error: " + error.code);
+            }
+              });
+
+        }
+
+
     });
-</script>
--->
-     
+    </script>
+
+    <script>
+
+
+        function find_similar_houses(arr,n_child,indexes)
+        {
+        console.log(arr);
+        console.log(n_child);
+        console.log(indexes);
+
+        var best_prop=null;
+        console.log(best_prop);
+        var long1,lat1,long2,lat2;
+        var i;
+        var index;
+
+        //console.log(iterator);
+
+        var propdet = firebase.database().ref("properties/");
+        propdet.on("value", function(data) {
+
+        for(i=0;i<3;i++)
+        {
+            console.log(i);
+            max = -1;
+            let val = data.val();
+
+            for(x in val)
+            {
+            //console.log(x);
+            //console.log(property);
+
+            cosine_sim = 0;
+
+            for(prop in arr)
+            {
+            // if no properties of the user
+            if(arr[prop]==null)
+            {return;}
+            //console.log(val[x].age);
+            //console.log(!indexes.includes(x));
+            //console.log(x);
+            //console.log(!indexes.includes(x));
+
+            if(!indexes.includes(x))
+            {
+            //console.log(x);
+            if(arr[prop].city==val[x].city){cosine_sim+=1;}
+            cosine_sim+=(1/(1 + Math.abs(arr[prop].age-val[x].age)));
+            cosine_sim+=(1/(1 + Math.abs(arr[prop].area-val[x].area)));
+            cosine_sim+=(1 - (Math.abs(arr[prop].bedroom-val[x].bedroom))/(7-1));
+            cosine_sim+=(1 - (Math.abs(arr[prop].bathroom-val[x].bathroom))/(7-1));
+            cosine_sim+=(1/(1 + Math.abs(arr[prop].latitude-val[x].latitude)));
+            cosine_sim+=(1/(1 + Math.abs(arr[prop].longitude-val[x].longitude)));
+            cosine_sim+=(1/(1 + Math.abs(arr[prop].price-val[x].price)));
+            cosine_sim = cosine_sim/7;
+            //console.log(cosine_sim/7);
+            }
+            }
+            cosine_sim = cosine_sim/n_child;
+            if(cosine_sim<1 && cosine_sim>max && isNaN(cosine_sim)==false && (val[x].longitude!=long1) && (val[x].latitude!=lat1) && (val[x].longitude!=long2) && (val[x].latitude!=lat2))
+            {
+                max = cosine_sim;
+                best_prop = val[x];
+            }
+
+
+
+            }
+
+       
+            if(best_prop!=null)
+            {
+            if(i==0)
+            {lat1 = best_prop.latitude;long1 = best_prop.longitude;}
+            if(i==1)
+            {lat2 = best_prop.latitude;long2 = best_prop.longitude;}
+
+            document.getElementById("rec" + (i+1).toString()).style.visibility = "visible";
+            document.getElementById("recname" + (i+1).toString()).innerText = best_prop.name;
+            document.getElementById("recprice" + (i+1).toString()).innerText = best_prop.price;
+            console.log(max);
+            }
+
+        }
+            });
+
+
+
+        }
+    </script>
+
+
 </body>
 
 <!-- Mirrored from themevessel-item.s3-website-us-east-1.amazonaws.com/xero/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 02 Apr 2019 18:12:39 GMT -->
