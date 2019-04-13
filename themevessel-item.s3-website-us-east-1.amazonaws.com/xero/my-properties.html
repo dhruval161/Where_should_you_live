@@ -335,7 +335,7 @@
             </div>
             <div class="col-lg-8 col-md-12 col-sm-12">
                 <div class="my-properties">
-                    <table class="table">
+                    <table class="table" >
                         <thead>
                         <tr>
                             <th>Property</th>
@@ -345,8 +345,8 @@
                             <th>Actions</th>
                         </tr>
                         </thead>
-                        <tbody>
-                        <tr class="prop_row" id="row" style="visibility:hidden">
+                        <tbody id="contain">
+                        <tr class="prop_row" id="prop" style="visibility:hidden">
                             <td class="image">
                                 <a href="properties-details.html"><img alt="my-properties-3" src="assets/img/my-properties-3.jpg" class="img-fluid"></a>
                             </td>
@@ -354,7 +354,7 @@
                                 <div class="inner">
                                     <a href="properties-details.html"><h2 id="property">Modern Family Home</h2></a>
                                     <figure><i id="location" class="flaticon-facebook-placeholder-for-locate-places-on-maps"></i></figure>
-                                    <div id="price" class="tag price">$ 27,000</div>
+                                    <div id="price" class="tag price"> 27,000</div>
                                 </div>
                             </td>
                             <td class="hdn">14.02.2018</td>
@@ -613,25 +613,30 @@
         let val = data.val();
             for(x in val)
             {
-            console.log(data.numChildren());
-            let propdet = firebase.database().ref("properties/" + val[x] )
-            propdet.on("value", function(propdata) {
-            let view = Math.floor(Math.random() * 70) + 2;
-            document.getElementById("row").style.visibility = "visible";
-            document.getElementById("property").innerText = propdata.val().name;
-            document.getElementById("price").innerText = propdata.val().price;
-            document.getElementById("location").innerText = propdata.val().city;
-            document.getElementById("views").innerHTML = view;
-            iterator += 1;
-            if(iterator== data.numChildren())
-            {return;}
-            $clone = $('.prop_row:last').clone();
-            $clone.insertAfter('.prop_row:last');
-            });
+                console.log(data.numChildren());
+                let propdet = firebase.database().ref("properties/" + val[x] )
+                propdet.on("value", function(propdata) {
+                    
+                    let property = propdata.val();
+                    let view = Math.floor(Math.random() * 70) + 2;
+                    document.getElementById("prop").style.visibility = "visible";
+                    document.getElementById("property").innerText = property.name;
+                    document.getElementById("price").innerText = "$ "+property.price;
+                    document.getElementById("location").innerText = property.city;
+                    document.getElementById("views").innerHTML = view;
+                    iterator += 1;
+                    if(iterator== data.numChildren())
+                    {return;}
+                    
+                    $clone = $('#prop').clone();
+
+                    $clone.attr("id","123456789");
+                    $clone.insertAfter('#prop');
+                });
 
 
             }
-              });
+        });
     });
 </script>
 

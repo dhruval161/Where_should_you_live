@@ -72,7 +72,7 @@ function getProperty()
             $("#name").attr("href","properties-details.html?id="+x);
             $("#area").text(val[x].area);
             $("#detail").text(val[x].detail.substring(0,100)+"...");
-            $("#price").text(val[x].price);
+            $("#price").text("$ " +val[x].price);
             $("#bed").text(val[x].bedroom);
             $("#bath").text(val[x].bathroom);
             $("#address").text(val[x].address);
