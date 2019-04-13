@@ -290,7 +290,7 @@
         <div class="row">
             <div class="col-lg-4">
                 <div class="heading">
-                    <h3>Select Propertie's You Want To Compare</h3>
+                    <h3>Enter the name of the Properties You Want To Compare</h3>
                 </div>
             </div>
             <div class="col-lg-8">
@@ -300,29 +300,14 @@
                             <form method="GET">
                                 <div class="row">
                                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
-                                        <div class="form-group">
-                                            <select class="selectpicker search-fields" name="brand">
-                                                <option>Select</option>
-                                                <option>Luxury</option>
-                                                <option>Modern Family Home</option>
-                                                <option>Relaxing Apartment</option>
-                                                <option>Masons Villas</option>
-                                            </select>
-                                        </div>
+                                        <input style="color:black" id="prop1" type="text" class="form-control" placeholder="Property1">
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
-                                        <div class="form-group">
-                                            <select class="selectpicker search-fields" name="make">
-                                                <option>Luxury</option>
-                                                <option>Masons Villas</option>
-                                                <option>Park avenue</option>
-                                                <option>Beautiful Single Home</option>
-                                            </select>
-                                        </div>
+                                        <input style="color:black" id="prop2" type="text" class="form-control" placeholder="Property2">
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-6 ">
                                         <div class="form-group">
-                                            <button class="search-button btn-md btn-color">Search</button>
+                                            <button class="search-button btn-md btn-color" onclick="compare_prop()">Compare</button>
                                         </div>
                                     </div>
                                 </div>
@@ -338,16 +323,16 @@
                     <img class="card-img-top img-fluid" src="assets/img/property-3.jpg" alt="property-3">
                     <div class="card-body detail">
                         <div class="pull-left">
-                            <h5>Relaxing Apartment</h5>
-                            <h6>$8446.00</h6>
+                            <h5 id="property_name1">Property 1</h5>
+                            <h6 id="price1">$8446.00</h6>
                         </div>
                         <div class="pull-right">
                             <p>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
+                                <i id="star11" class="fa fa-star-o"></i>
+                                <i id="star12" class="fa fa-star-o"></i>
+                                <i id="star13" class="fa fa-star-o"></i>
+                                <i id="star14" class="fa fa-star-o"></i>
+                                <i id="star15" class="fa fa-star-o"></i>
                             </p>
                         </div>
                     </div>
@@ -358,16 +343,16 @@
                     <img class="card-img-top img-fluid" src="assets/img/property-2.jpg" alt="property-2">
                     <div class="card-body detail">
                         <div class="pull-left">
-                            <h5>Beautiful Single Home</h5>
-                            <h6>$8446.00</h6>
+                            <h5 id="property_name2">Property 2</h5>
+                            <h6 id="price2">$8446.00</h6>
                         </div>
                         <div class="pull-right">
-                            <p>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
+                            <p>                              
+                                <i id="star21" class="fa fa-star-o"></i>
+                                <i id="star22" class="fa fa-star-o"></i>
+                                <i id="star23" class="fa fa-star-o"></i>
+                                <i id="star24" class="fa fa-star-o"></i>
+                                <i id="star25" class="fa fa-star-o"></i>
                             </p>
                         </div>
                     </div>
@@ -385,12 +370,6 @@
             <div class="col-lg-12">
                 <div id="faq" class="faq-accordion">
                     <div class="card m-b-0">
-                        <div class="card-header">
-                            <a class="card-title collapsed" data-toggle="collapse" data-parent="#faq" href="#collapse1">
-                                What do you mean by an End Product?
-                            </a>
-                        </div>
-                        <div id="collapse1" class="card-block collapse">
                             <div class="compare-table">
                                 <table>
                                     <tbody>
@@ -415,6 +394,11 @@
                                         <td> $47,000</td>
                                     </tr>
                                     <tr>
+                                        <td> Age </td>
+                                        <td>10</i></td>
+                                        <td>2</i></td>
+                                    </tr>                                        
+                                    <tr>
                                         <td> Garage </td>
                                         <td> 1</td>
                                         <td> 1</td>
@@ -424,117 +408,52 @@
                                         <td> 1</td>
                                         <td> 1</td>
                                     </tr>
-                                    <tr>
-                                        <td> Colour </td>
-                                        <td> Blue</td>
-                                        <td> Gray </td>
-                                    </tr>
-                                    <tr>
-                                        <td> Swimming Pool </td>
-                                        <td> 1 </td>
-                                        <td> 1 </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
 
-                        <div class="card-header">
-                            <a class="card-title collapsed" data-toggle="collapse" data-parent="#faq" href="#collapse2">
-                                Where do I find my Purchase or License code?
-                            </a>
-                        </div>
-                        <div id="collapse2" class="card-block collapse">
-                            <div class="compare-table">
-                                <table>
-                                    <tbody>
-                                    <tr>
-                                        <td> Size </td>
-                                        <td> Sq Ft:3400</td>
-                                        <td> Sq Ft:3400</td>
-                                    </tr>
-                                    <tr>
-                                        <td> Available Colors </td>
-                                        <td> <i class="fa fa-check"></i> </td>
-                                        <td> <i class="fa fa-check"></i> </td>
-                                    </tr>
                                     <tr>
                                         <td> Bedrooms </td>
-                                        <td> <i class="fa fa-check"></i> </td>
-                                        <td> <i class="fa fa-check"></i> </td>
+                                        <td> <i id="bed1" class="fa fa-check"></i> </td>
+                                        <td> <i id="bed2" class="fa fa-check"></i> </td>
                                     </tr>
                                     <tr>
                                         <td> Bathrooms </td>
-                                        <td> <i class="fa fa-check"></i> </td>
-                                        <td> <i class="fa fa-check"></i> </td>
-                                    </tr>
-                                    <tr>
-                                        <td> Garage </td>
-                                        <td> <i class="fa fa-times"></i> </td>
-                                        <td> <i class="fa fa-check"></i> </td>
+                                        <td> <i id="bath1" class="fa fa-check"></i> </td>
+                                        <td> <i id="bath2" class="fa fa-check"></iid="bath1"> </td>
                                     </tr>
                                     <tr>
                                         <td> Swimming Pool </td>
-                                        <td> <i class="fa fa-times"></i> </td>
-                                        <td> <i class="fa fa-check"></i> </td>
+                                        <td> <i id="swim1" class="fa fa-check"></i> </td>
+                                        <td> <i id="swim2" class="fa fa-check"></i> </td>
                                     </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                        <div class="card-header bd-none">
-                            <a class="card-title collapsed" data-toggle="collapse" data-parent="#faq" href="#collapse4">
-                                Is my license transferable?
-                            </a>
-                        </div>
-                        <div id="collapse4" class="card-block collapse">
-                            <div class="compare-table">
-                                <table>
-                                    <tbody>
+                                        
                                     <tr>
-                                        <td> ABS </td>
-                                        <td> <i class="fa fa-times"></i></td>
-                                        <td> <i class="fa fa-check"></i></td>
+                                        <td> Laundry Room </td>
+                                        <td> <i id="laund1" class="fa fa-check"></i></td>
+                                        <td> <i id="laund2" class="fa fa-check"></i></td>
                                     </tr>
-                                    <tr>
-                                        <td> Security </td>
-                                        <td> <i class="fa fa-times"></i></td>
-                                        <td> <i class="fa fa-check"></i></td>
-                                    </tr>
+                                        
                                     <tr>
                                         <td> Gym </td>
-                                        <td> <i class="fa fa-times"></i></td>
-                                        <td> <i class="fa fa-check"></i></td>
+                                        <td> <i id="gym1" class="fa fa-check"></i></td>
+                                        <td> <i id="gym2" class="fa fa-check"></i></td>
                                     </tr>
                                     <tr>
                                         <td> Private space </td>
-                                        <td> <i class="fa fa-times"></i></td>
-                                        <td> <i class="fa fa-check"></i></td>
+                                        <td> <i id="priv1" class="fa fa-check"></i></td>
+                                        <td> <i id="priv2" class="fa fa-check"></i></td>
                                     </tr>
                                     <tr>
-                                        <td> Electric Range </td>
-                                        <td> <i class="fa fa-times"></i></td>
-                                        <td> <i class="fa fa-check"></i></td>
-                                    </tr>
+                                        <td> Window covering </td>
+                                        <td> <i id="wc1" class="fa fa-check"></i></td>
+                                        <td> <i id="wc2" class="fa fa-check"></i></td>
+                                    </tr>   
                                     <tr>
                                         <td> Balcony </td>
-                                        <td> <i class="fa fa-times"></i></td>
-                                        <td> <i class="fa fa-check"></i></td>
+                                        <td> <i id="bc1" class="fa fa-check"></i></td>
+                                        <td> <i id="bc2" class="fa fa-check"></i></td>
                                     </tr>
-                                    <tr>
-                                        <td> Swimming Pool </td>
-                                        <td> <i class="fa fa-times"></i></td>
-                                        <td> <i class="fa fa-check"></i></td>
-                                    </tr>
-                                    <tr>
-                                        <td> Alarm </td>
-                                        <td> <i class="fa fa-times"></i></td>
-                                        <td> <i class="fa fa-check"></i></td>
-                                    </tr>
+                                     
                                     </tbody>
                                 </table>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -744,8 +663,128 @@
 <script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0N5pbJN10Y1oYFRd0MJ_v2g8W2QT74JE"></script>
 <script src="assets/js/ie-emulation-modes-warning.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
+<script src="assets/js/initilize.js"></script>
+<script src="assets/js/userdetails.js"></script>
+    
 <!-- Custom JS Script -->
 <script  src="assets/js/app.js"></script>
+
+<script>
+
+    function compare_prop()
+    {
+
+    prop1 = document.getElementById("prop1").value;
+    prop2 = document.getElementById("prop2").value;
+    let flag1 = 0;
+    let flag2 = 0;
+    var rating = 3;
+    var i;
+
+    var propdet = firebase.database().ref("properties/");
+    propdet.on("value", function(data) {
+    let val = data.val();
+    for(x in val)
+    {
+
+    if(flag1==1 && flag2==1)
+    {
+    console.log("Breaking Out");
+    break;
+    }
+
+    if(val[x].name == prop1 && flag1==0)
+    {
+    console.log(val[x]);//22
+    flag1 = 1;
+
+    for(i=11;i<(11+rating);i++)
+    {
+    console.log('star');
+    document.getElementById('star'+i.toString()).className = "fa fa-star";
+    }
+
+
+    document.getElementById('property_name1').innerText = val[x].name;
+    document.getElementById('price1').innerText = val[x].price;
+    document.body.getElementsByTagName("td")[1].innerHTML = val[x].area;
+    document.body.getElementsByTagName("td")[4].innerHTML = val[x].bedroom;
+    document.body.getElementsByTagName("td")[7].innerHTML = val[x].bathroom;
+    document.body.getElementsByTagName("td")[10].innerHTML = val[x].price;
+    document.body.getElementsByTagName("td")[13].innerHTML = val[x].age;
+
+    if(val[x].garage==undefined){document.body.getElementsByTagName("td")[16].innerHTML = 0;}
+    else{document.body.getElementsByTagName("td")[16].innerHTML = val[x].garage;}
+
+    if(val[x].parking==undefined){document.body.getElementsByTagName("td")[19].innerHTML = 0;}
+    else{document.body.getElementsByTagName("td")[19].innerHTML = val[x].parking;}
+   
+
+    if(val[x].bedroom<=0){document.getElementById('bed1').className="fa fa-times";}
+    if(val[x].bathroom<=0){document.getElementById('bath1').className="fa fa-times";}
+    if(val[x].swimmingpool==false){document.getElementById('swim1').className="fa fa-times";}
+    if(val[x].laundryroom<=0){document.getElementById('laund1').className="fa fa-times";}
+    if(val[x].gym<=0){document.getElementById('gym1').className="fa fa-times";}
+    if(val[x].privatespace<=0){document.getElementById('priv1').className="fa fa-times";}
+    if(val[x].windowcovering==false){document.getElementById('wc1').className="fa fa-times";}
+    if(val[x].balcony<=0){document.getElementById('bc1').className="fa fa-times";}
+
+    }
+
+    if(val[x].name == prop2 && flag2==0)
+    {
+    console.log(val[x]);
+    flag2 = 1;
+
+    for(i=21;i<(21+rating);i++)
+    {
+    console.log('star');
+    document.getElementById('star'+i.toString()).className = "fa fa-star";
+    }
+
+
+    document.getElementById('property_name2').innerText = val[x].name;
+    document.getElementById('price2').innerText = val[x].price;
+
+
+    document.body.getElementsByTagName("td")[2].innerHTML = val[x].area;
+    document.body.getElementsByTagName("td")[5].innerHTML = val[x].bedroom;
+    document.body.getElementsByTagName("td")[8].innerHTML = val[x].bathroom;
+    document.body.getElementsByTagName("td")[11].innerHTML = val[x].price;
+    document.body.getElementsByTagName("td")[14].innerHTML = val[x].age;
+
+    if(val[x].garage==undefined){document.body.getElementsByTagName("td")[17].innerHTML = 0;}
+    else{document.body.getElementsByTagName("td")[17].innerHTML = val[x].garage;}
+
+    if(val[x].parking==undefined){document.body.getElementsByTagName("td")[20].innerHTML = 0;}
+    else{document.body.getElementsByTagName("td")[20].innerHTML = val[x].parking;}
+
+    if(val[x].bedroom<=0){document.getElementById('bed2').className="fa fa-times";}
+    if(val[x].bathroom<=0){document.getElementById('bath2').className="fa fa-times";}
+    if(val[x].swimmingpool==false){document.getElementById('swim2').className="fa fa-times";}
+    if(val[x].laundryroom<=0){document.getElementById('laund2').className="fa fa-times";}
+    if(val[x].gym<=0){document.getElementById('gym2').className="fa fa-times";}
+    if(val[x].privatespace<=0){document.getElementById('priv2').className="fa fa-times";}
+    if(val[x].windowcovering==false){document.getElementById('wc2').className="fa fa-times";}
+    if(val[x].balcony<=0){document.getElementById('bc2').className="fa fa-times";}
+    }
+
+    }
+
+    });
+
+    if(flag1==0 && flag2==0)
+    {
+    console.log("Fail");
+    }
+
+
+    }
+
+</script>
+
+
 
 </body>
 
