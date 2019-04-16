@@ -425,8 +425,23 @@
 <script src="assets/js/ie-emulation-modes-warning.js"></script>
 <!-- Custom JS Script -->
 <script  src="assets/js/app.js"></script>
-
+<script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
+<script src="assets/js/initilize.js"></script>   
+<script src="assets/js/userdetails.js"></script>
 <script>
+    $('document').ready(function(){
+        if(loggedin())
+        {
+            $("#logincheck").attr('href',"user-profile.html");
+            $("#logincheck").text("Profile");
+            console.log(getuserdetails());
+        }
+        else
+        {
+            
+        }
+
+    });
     function change1(x)
     {if(x.classList.value=="fa fa-thumbs-o-up"){document.getElementById("dislike_f1").classList.value = "fa fa-thumbs-o-down";x.classList.toggle("fa-thumbs-up");}
     else if(x.classList.value=="fa fa-thumbs-o-down"){document.getElementById("like_f1").classList.value = "fa fa-thumbs-o-up";x.classList.toggle("fa-thumbs-down");}}

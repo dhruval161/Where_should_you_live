@@ -453,6 +453,8 @@
         if(loggedin())
         {
             console.log(getuserdetails());
+            $("#logincheck").attr('href',"user-profile.html");
+            $("#logincheck").text("Profile");
         }
         else
         {
@@ -461,7 +463,7 @@
                 location.href = "login.html";
             },100);
         }
-            });
+    });
 
     </script>
 

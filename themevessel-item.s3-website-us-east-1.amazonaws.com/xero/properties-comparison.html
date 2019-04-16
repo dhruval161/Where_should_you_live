@@ -519,7 +519,20 @@
 <script  src="assets/js/app.js"></script>
 
 <script>
+    $('document').ready(function(){
+        if(loggedin())
+        {
+            $("#logincheck").attr('href',"user-profile.html");
+            $("#logincheck").text("Profile");
+            console.log(getuserdetails());
+        }
+        else
+        {
+            
+        }
 
+    });
+    
     function compare_prop()
     {
 

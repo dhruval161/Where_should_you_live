@@ -563,6 +563,8 @@
         console.log('submit prop');
         if(loggedin())
         {
+            $("#logincheck").attr('href',"user-profile.html");
+            $("#logincheck").text("Profile");
             console.log(getuserdetails());
         }
         else

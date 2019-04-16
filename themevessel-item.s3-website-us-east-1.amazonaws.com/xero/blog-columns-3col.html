@@ -535,12 +535,22 @@
 <script src="assets/js/ie-emulation-modes-warning.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
 <script src="assets/js/initilize.js"></script>
-
+<script src="assets/js/userdetails.js"></script>
 <!-- Custom JS Script -->
 <script  src="assets/js/app.js"></script>
     
 <script>
     $('document').ready(function(){
+        if(loggedin())
+        {
+            $("#logincheck").attr('href',"user-profile.html");
+            $("#logincheck").text("Profile");
+            console.log(getuserdetails());
+        }
+        else
+        {
+            
+        }
 
     var i1=1;
     var i2=2;

@@ -565,10 +565,21 @@
 <script src="assets/js/initilize.js"></script>
 <script src="assets/js/property-list.js"></script>
 <script  src="assets/js/app.js"></script>
+<script src="assets/js/userdetails.js"></script>
 <script>
 
     $('document').ready(function(){
         console.log('list prop');
+        if(loggedin())
+        {
+            $("#logincheck").attr('href',"user-profile.html");
+            $("#logincheck").text("Profile");
+            console.log(getuserdetails());
+        }
+        else
+        {
+            
+        }
 
         // property list
         getProperty();

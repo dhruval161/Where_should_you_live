@@ -442,6 +442,8 @@
         if(loggedin())
         {
             console.log(getuserdetails());
+            $("#logincheck").attr('href',"user-profile.html");
+            $("#logincheck").text("Profile");
         }
         else
         {

@@ -441,10 +441,11 @@
 
     <script>
     $('document').ready(function(){
-        console.log("from user properties");
         if(loggedin())
         {
             console.log(getuserdetails());
+            $("#logincheck").attr('href',"user-profile.html");
+            $("#logincheck").text("Profile");
         }
         else
         {
@@ -453,6 +454,7 @@
                 location.href = "login.html";
             },100);
         }
+
         // read user details
         var userdet = firebase.database().ref("users/" + getuserdetails() + "/favorites/");
         let iterator = 0;
