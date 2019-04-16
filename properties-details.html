@@ -417,13 +417,15 @@
 
                 <div id="disqus_thread"></div>
                 <script>
-
+                function create_chat(chat_url)
+                {
                 /**
                 *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
                 *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
 
+                console.log(chat_url);
                 var disqus_config = function () {
-                this.page.url = "http://where-should-you-live.surge.sh/themevessel-item.s3-website-us-east-1.amazonaws.com/xero/properties-details.html";  // Replace PAGE_URL with your page's canonical URL variable
+                this.page.url = chat_url;  // Replace PAGE_URL with your page's canonical URL variable
                 //this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
                 };
 
@@ -433,6 +435,7 @@
                 s.setAttribute('data-timestamp', +new Date());
                 (d.head || d.body).appendChild(s);
                 })();
+                }
                 </script>
                 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
@@ -677,7 +680,7 @@
 
 <script>
     var map;
-    
+
     function initMap() {
         // The location of Uluru
         var uluru = {lat: -25.344, lng: 131.036};
@@ -699,11 +702,13 @@
         }
         else
         {
-            
+
         }
 
-        let propertyId = document.location.search.substr(4); 
-        
+        let propertyId = document.location.search.substr(4);
+        let chat_url = "http://where-should-you-live.surge.sh/themevessel-item.s3-website-us-east-1.amazonaws.com/xero/properties-details.html" + "?id=" + propertyId;
+        create_chat(chat_url);
+
         var propRef = firebase.database().ref("properties/" + propertyId);
         propRef.on("value", function(snapshot) {
             property = snapshot.val();
