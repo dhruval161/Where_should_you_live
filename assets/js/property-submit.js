@@ -48,6 +48,36 @@ function addProperty()
     console.log(val);
     var propertyRef = firebase.database().ref("properties/");
 
+        name = document.getElementById("name").value
+        price =  document.getElementById("price").value
+        area = document.getElementById("area").value
+        bedroom = document.getElementById("bedroom").value
+        bathroom = document.getElementById("bathroom").value
+        address = document.getElementById("address").value
+        detail = document.getElementById("detail").value
+        city = document.getElementById("city").value
+        code = document.getElementById("code").value
+        age = document.getElementById("age").value
+        contact = document.getElementById("contact").value
+        email = document.getElementById("email").value
+        phone = document.getElementById("phone").value
+
+        if (! (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)))
+        {
+        window.alert("The email address is badly formatted");
+        return; 
+        }
+        if(phone.length<10)
+        {
+        window.alert("Enter in correct phone number format");
+        return;
+        }
+
+        if(name.length==0 || price.length==0 || area.length==0 || bedroom.length==0 || bathroom.length==0 || address.length==0 || code.length==0 || 
+           age.length==0 || contact.length==0 || email.length==0 || phone.length<10)
+        {window.alert("Please fill all the required fields");return;}
+         
+
     propertyUpload = propertyRef.push({
         name : document.getElementById("name").value,
         price : document.getElementById("price").value,

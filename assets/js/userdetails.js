@@ -44,6 +44,11 @@ window.alert("Enter the email field");
 return ;
 }
 
+if (! (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(document.getElementById("user_email").value)))
+{
+window.alert("The email address is badly formatted");
+return; 
+}
 
 
 var userdet = firebase.database().ref("users/" + getuserdetails());
@@ -152,9 +157,6 @@ function showmyprop()
 
 
 
-
-
-
 function getdelelement(result)
 {
 console.log(result.id)
@@ -176,3 +178,31 @@ let val = data.val();
 }
 
 
+function show_random_properties()
+{
+console.log("Reached in random prop")
+var propdet = firebase.database().ref("properties/");
+let iterator_num = 0;
+propdet.on("value", function(data) {
+let val = data.val();
+
+for(x in val)
+{
+if(iterator_num==4)
+{return;}
+//console.log(val[x]);
+document.getElementById("recname" + (iterator_num+1).toString()).innerText = val[x].name;
+document.getElementById("recloc" + (iterator_num+1).toString()).innerText = val[x].address;
+document.getElementById("recbed" + (iterator_num+1).toString()).innerText = val[x].bedroom + " Beds";
+document.getElementById("recbath" + (iterator_num+1).toString()).innerText = val[x].bathroom + " Baths";
+document.getElementById("recarea" + (iterator_num+1).toString()).innerText = val[x].area;
+document.getElementById("img" + (iterator_num+1).toString()).src = "https://firebasestorage.googleapis.com/v0/b/where-should-you-live.appspot.com/o/images%2F"+ x +"?alt=media&token=3e4b4997-6a52-4106-bc9e-34b0cd025e04";
+document.getElementById("recname" + (iterator_num+1).toString()).href = "properties-details.html?id=" + x;
+iterator_num++;
+
+}
+
+
+});
+
+}
