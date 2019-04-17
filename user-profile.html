@@ -129,9 +129,7 @@
                 <div class="user-profile-box mrb">
                         <!--header -->
                         <div class="header clearfix">
-                            <h2>Emma Connor</h2>
-                            <h4>Creative Director</h4>
-                            <img src="assets/img/avatar/avatar-2.jpg" alt="avatar" class="img-fluid profile-img">
+                            <h2 id="user_profile_name"></h2>
                         </div>
                         <!-- Detail -->
                         <div class="detail clearfix">
@@ -367,7 +365,8 @@
 
         // read user details
         var userdet = firebase.database().ref("users/" + getuserdetails());
-        userdet.on("value", function(snapshot) {
+        userdet.on("value", function(snapshot) {    
+           document.getElementById("user_profile_name").innerText = snapshot.val().name;
            document.getElementById("user_name").style.color="black";
            document.getElementById("user_job").style.color="black";
            document.getElementById("user_phone").style.color="black";
