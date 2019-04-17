@@ -125,6 +125,8 @@ function showmyprop()
                     document.getElementById("price").innerText = "$ "+property.price;
                     document.getElementById("location").innerText = property.city;
                     document.getElementById("views").innerHTML = view;
+                    document.getElementById("eye_prop").href = "properties-details.html?id="+val[x];
+
                     //console.log(propdet.getKey());
                     console.log(iterator);
                     if(iterator==0)
