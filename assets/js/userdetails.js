@@ -125,7 +125,6 @@ function showmyprop()
                     document.getElementById("price").innerText = "$ "+property.price;
                     document.getElementById("location").innerText = property.city;
                     document.getElementById("views").innerHTML = view;
-                    document.getElementById("eye_prop").href = "properties-details.html?id="+val[x];
 
                     //console.log(propdet.getKey());
                     console.log(iterator);
@@ -138,6 +137,7 @@ function showmyprop()
 
 
 
+                    document.getElementById("eye_prop").href = "properties-details.html?id="+prev;
 
                     iterator += 1;
                     if(iterator== data.numChildren())
@@ -148,6 +148,7 @@ function showmyprop()
                     $clone = $('#prop').clone();
                     $clone.attr("id","123456789");
                     $clone.insertAfter('#prop');
+
                 });
             }
         });
@@ -162,20 +163,35 @@ function showmyprop()
 function getdelelement(result)
 {
 console.log(result.id)
-console.log(document.getElementsByClassName("deletebuttons")[0].id);
+
 
 var userRef = firebase.database().ref("users/" + getuserdetails() + "/property/");
 userRef.on("value", function(data) {
 let val = data.val();
     for(x in val)
     {
-        //console.log(val[x]);
-        if(val[x]==result.id){console.log("Property Found!!");userRef.child(x).remove();document.getElementsByClassName("deletebuttons")[0].id = "del0";window.location.href='my-properties.html';return;}
+        //console.log(val[x]);userRef.child(x).remove();document.getElementsByClassName("deletebuttons")[0].id = "del0";
+        if(val[x]===result.id)
+        {
+            console.log("Property Found!!");
+        console.log(x);
+        console.log(val[x]);
+        var propRef = firebase.database().ref("properties/" + val[x]);       
+        userRef.child(x).remove();
+        document.getElementsByClassName("deletebuttons")[0].id = "del0";
+        propRef.remove();
+
+        window.location.href='my-properties.html';
+                return;
+
+        }
     }
     });    
 
     console.log("property deleted!!");
-    return;
+            return;
+
+  
    
 }
 

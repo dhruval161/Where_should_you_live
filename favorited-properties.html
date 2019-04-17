@@ -176,7 +176,6 @@
                                 <th></th>
                                 <th class="hdn">Date Added</th>
                                 <th class="hdn">Views</th>
-                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody id="contain">
@@ -193,23 +192,9 @@
                                 </td>
                                 <td class="hdn">14.02.2018</td>
                                 <td id="views" class="hdn">421</td>
-                                <td><a href="#" id="eye_prop"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
-                                <td class="actions">
-                                </td>
                             </tr>
                         </tbody>
                     </table>
-                </div>
-                <div class="pagination-box text-center">
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination">
-                            <li class="page-item"><a class="page-link" href="#"><span aria-hidden="true">«</span></a></li>
-                            <li class="page-item"><a class="page-link active" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#"><span aria-hidden="true">»</span></a></li>
-                        </ul>
-                    </nav>
                 </div>
             </div>
         </div>
@@ -371,6 +356,7 @@
             for(x in val)
             {
                 console.log(data.numChildren());
+                console.log(val[x])
                 let propdet = firebase.database().ref("properties/" + val[x] )
                 propdet.on("value", function(propdata) {
 
@@ -382,14 +368,15 @@
                     document.getElementById("price").innerText = "$ "+property.price;
                     document.getElementById("location").innerText = property.city;
                     document.getElementById("views").innerHTML = view;
-                    document.getElementById("eye_prop").href = "properties-details.html?id="+val[x];
+
                     iterator += 1;
                     if(iterator== data.numChildren())
                     {return;}
 
                     $clone = $('#prop').clone();
-                    $clone.attr("id","123456789");
+                    $clone.attr("id",val[x]);
                     $clone.insertAfter('#prop');
+
                 });
             }
         });
