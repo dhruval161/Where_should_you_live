@@ -5,7 +5,6 @@ let currentIds =[];
 function next()
 {
     console.log("nex");
-    
     console.log(page,totalprop)  
     if((page+1)*10 <totalprop)
     {
@@ -39,13 +38,6 @@ function next()
                 $("#bath").text(propertylist[x].bathroom);
                 $("#address").text(propertylist[x].address);
 
-                /*if(iterator==0)
-                {document.getElementById('fav' + (iterator).toString()).id = x}
-                else
-                {document.getElementById(prev).id = x}
-                prev = x;
-
-                checkfav(document.getElementById(prev).id);*/
 
                 $("#imageref").attr("src","https://firebasestorage.googleapis.com/v0/b/where-should-you-live.appspot.com/o/images%2F"+ x +"?alt=media&token=3e4b4997-6a52-4106-bc9e-34b0cd025e04");
                 if(propertylist[x].rent == true)
@@ -64,9 +56,11 @@ function next()
                 $clone.attr("id","prop"+x);
                 currentIds.push(x);
                 console.log(iterator);
+                $clone.find('#fav0').attr('id',x);
                 $clone.appendTo('#contain');
+
                 $('#prop'+x).css('display','block');
-                
+                checkfav(x);
                 iterator++;
             }
 
@@ -118,13 +112,6 @@ function prev()
                 $("#bath").text(propertylist[x].bathroom);
                 $("#address").text(propertylist[x].address);
 
-                /*if(iterator==0)
-                {document.getElementById('fav' + (iterator).toString()).id = x}
-                else
-                {document.getElementById(prev).id = x}
-                prev = x;
-
-                checkfav(document.getElementById(prev).id);*/
 
                 $("#imageref").attr("src","https://firebasestorage.googleapis.com/v0/b/where-should-you-live.appspot.com/o/images%2F"+ x +"?alt=media&token=3e4b4997-6a52-4106-bc9e-34b0cd025e04");
                 if(propertylist[x].rent == true)
@@ -143,9 +130,12 @@ function prev()
                 $clone.attr("id","prop"+x);
                 currentIds.push(x);
                 console.log(iterator);
+                $clone.find('#fav0').attr('id',x);
                 $clone.appendTo('#contain');
+
+
                 $('#prop'+x).css('display','block')
-                
+                checkfav(x);
                 iterator++;
             }
 
@@ -166,7 +156,6 @@ function getProperty(result)
 {
     var refAddress = "properties"
     var userdet = firebase.database().ref(refAddress);
-    var prev;
     
     userdet.on("value", function(data) {
         let val = data.val();
@@ -193,17 +182,8 @@ function getProperty(result)
             $("#bath").text(val[x].bathroom);
             $("#address").text(val[x].address);
 
-            if(iterator==0)
-            {
-                document.getElementById('fav' + (iterator).toString()).id = x
-            }
-            else
-            {
-                document.getElementById(prev).id = x
-            }
-            prev = x;
-
-            checkfav(document.getElementById(prev).id);
+            
+            
 
             $("#imageref").attr("src","https://firebasestorage.googleapis.com/v0/b/where-should-you-live.appspot.com/o/images%2F"+ x +"?alt=media&token=3e4b4997-6a52-4106-bc9e-34b0cd025e04");
             if(val[x].rent == true)
@@ -217,14 +197,18 @@ function getProperty(result)
 
             iterator += 1;
             if(iterator> Math.min(data.numChildren(),10) )
-            {return;}
+            {  break;}
             
             $clone = $('#item').clone();
             
             $clone.attr("id","prop"+x);
             currentIds.push(x);
             console.log(iterator);
+            $clone.find('#fav0').attr('id',x);
             $clone.appendTo('#contain');
+            
+            
+            checkfav(x);
             $('#prop'+x).css('display','block')
 
         }
