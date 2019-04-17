@@ -1,34 +1,84 @@
 let page = 0;
 let totalprop = 0;
-let propertylist;
-
+let propertylist = [];
+let currentIds =[];
 function next()
 {
     console.log("nex");
     
-       
+    console.log(page,totalprop)  
     if((page+1)*10 <totalprop)
     {
-        $('.property-box-5').empty();
+        $('#prv').css('background-color','white');
+        console.log("rem");
+        
         page++;
         $('#pageno').text(page+1+"");
+        
+        for(id of currentIds)
+        {
+            $('#prop'+id).css('display','none');
+        }
+        currentIds.length = 0;
+        //$('#item').attr('hidden','true');
+
         let iterator = 0;
+        let num =0;
         for(x in propertylist)
         {
-            if(iterator>= page*10 && iterator<= (page+1)*10 )
+            console.log(x);
+            console.log(iterator+' '+page);
+            if(num>= page*10 && num< (page+1)*10 )
             {
+                $("#name").text(propertylist[x].name);
+                $("#name").attr("href","properties-details.html?id="+x);          
+                $("#area").text(propertylist[x].area);
+                $("#detail").text(propertylist[x].detail.substring(0,100)+"...");
+                $("#price").text("$ " +propertylist[x].price);
+                $("#bed").text(propertylist[x].bedroom);
+                $("#bath").text(propertylist[x].bathroom);
+                $("#address").text(propertylist[x].address);
+
+                /*if(iterator==0)
+                {document.getElementById('fav' + (iterator).toString()).id = x}
+                else
+                {document.getElementById(prev).id = x}
+                prev = x;
+
+                checkfav(document.getElementById(prev).id);*/
+
+                $("#imageref").attr("src","https://firebasestorage.googleapis.com/v0/b/where-should-you-live.appspot.com/o/images%2F"+ x +"?alt=media&token=3e4b4997-6a52-4106-bc9e-34b0cd025e04");
+                if(propertylist[x].rent == true)
+                {
+                    $("#sell").text("for Rent");
+                }
+                if(propertylist[x].sale == true)
+                {
+                    $("#sell").text("for Sale");
+                }
+
+                
+                
+                $clone = $('#item').clone();
+                
+                $clone.attr("id","prop"+x);
+                currentIds.push(x);
                 console.log(iterator);
-                $clone = $('.property-box-5:last').clone();
-                $clone.insertAfter('.property-box-5:last');
+                $clone.appendTo('#contain');
+                $('#prop'+x).css('display','block');
+                
+                iterator++;
             }
 
-            iterator++;
+            num++;
+            
         }
-        
+        if((page+1)*10 >=totalprop)
+        $('#nxt').css('background-color','#274CBF');
     }
     else
     {
-
+        $('#nxt').css('background-color','#274CBF');
     }
 }
 
@@ -37,7 +87,72 @@ function prev()
     console.log("prev");
     if(page!= 0)
     {
+        $('#nxt').css('background-color','white');
+        console.log("rem");
         
+        page--;
+        $('#pageno').text(page+1+"");
+        
+        for(id of currentIds)
+        {
+            $('#prop'+id).css('display','none');
+        }
+        currentIds.length = 0;
+        //$('#item').attr('hidden','true');
+
+        let iterator = 0;
+        let num =0;
+        for(x in propertylist)
+        {
+            console.log(x);
+            console.log(iterator+' '+page);
+            if(num>= page*10 && num< (page+1)*10 )
+            {
+                console.log('running');
+                $("#name").text(propertylist[x].name);
+                $("#name").attr("href","properties-details.html?id="+x);          
+                $("#area").text(propertylist[x].area);
+                $("#detail").text(propertylist[x].detail.substring(0,100)+"...");
+                $("#price").text("$ " +propertylist[x].price);
+                $("#bed").text(propertylist[x].bedroom);
+                $("#bath").text(propertylist[x].bathroom);
+                $("#address").text(propertylist[x].address);
+
+                /*if(iterator==0)
+                {document.getElementById('fav' + (iterator).toString()).id = x}
+                else
+                {document.getElementById(prev).id = x}
+                prev = x;
+
+                checkfav(document.getElementById(prev).id);*/
+
+                $("#imageref").attr("src","https://firebasestorage.googleapis.com/v0/b/where-should-you-live.appspot.com/o/images%2F"+ x +"?alt=media&token=3e4b4997-6a52-4106-bc9e-34b0cd025e04");
+                if(propertylist[x].rent == true)
+                {
+                    $("#sell").text("for Rent");
+                }
+                if(propertylist[x].sale == true)
+                {
+                    $("#sell").text("for Sale");
+                }
+
+                
+                
+                $clone = $('#item').clone();
+                
+                $clone.attr("id","prop"+x);
+                currentIds.push(x);
+                console.log(iterator);
+                $clone.appendTo('#contain');
+                $('#prop'+x).css('display','block')
+                
+                iterator++;
+            }
+
+            num++;
+        }
+        if(page == 0)
+        $('#prv').css('background-color','#274CBF');
     }
     else
     {
@@ -55,7 +170,7 @@ function getProperty(result)
     
     userdet.on("value", function(data) {
         let val = data.val();
-        properties = val;
+        propertylist = val;
         console.log(val);
         
         let iterator = 0;
@@ -79,18 +194,18 @@ function getProperty(result)
             $("#address").text(val[x].address);
 
             if(iterator==0)
-            {document.getElementById('fav' + (iterator).toString()).id = x}
+            {
+                document.getElementById('fav' + (iterator).toString()).id = x
+            }
             else
-            {document.getElementById(prev).id = x}
+            {
+                document.getElementById(prev).id = x
+            }
             prev = x;
 
             checkfav(document.getElementById(prev).id);
 
             $("#imageref").attr("src","https://firebasestorage.googleapis.com/v0/b/where-should-you-live.appspot.com/o/images%2F"+ x +"?alt=media&token=3e4b4997-6a52-4106-bc9e-34b0cd025e04");
-            //document.getElementById("name").innerText = val[x].name;
-            //document.getElementById("price").innerText = propdata.val().price;
-            //document.getElementById("location").innerText = propdata.val().city;
-            //document.getElementById("views").innerHTML = view;
             if(val[x].rent == true)
             {
                 $("#sell").text("for Rent");
@@ -101,17 +216,22 @@ function getProperty(result)
             }
 
             iterator += 1;
-            if(iterator== Math.min(data.numChildren(),10) )
+            if(iterator> Math.min(data.numChildren(),10) )
             {return;}
+            
             $clone = $('#item').clone();
             
-            $clone.attr("id","random");
+            $clone.attr("id","prop"+x);
+            currentIds.push(x);
             console.log(iterator);
             $clone.appendTo('#contain');
-            
-
+            $('#prop'+x).css('display','block')
 
         }
+
+        $('#prv').css('background-color','#274CBF');
+        if(data.numChildren() <= 10)
+            $('#nxt').css('background-color','#274CBF');
     });
 }
 
@@ -152,15 +272,17 @@ console.log("favorite deleted!!");
 
 function checkfav(propnm)
 {
-var userRef = firebase.database().ref("users/" + localStorage.UID + "/favorites");
-userRef.on("value", function(data) {
-let val = data.val();
+    var userRef = firebase.database().ref("users/" + localStorage.UID + "/favorites");
+    userRef.on("value", function(data) {
+    let val = data.val();
     //console.log(propnm);
     for(x in val)
-    {
-    if(val[x]==propnm)
-    {console.log("Present here");document.getElementById(propnm).className="fa fa-heart";return;}
-    }
+        {
+            if(val[x]==propnm)
+            {
+                console.log("Present here");document.getElementById(propnm).className="fa fa-heart";return;
+            }   
+        }
     });
     console.log("Not here");
     return;
