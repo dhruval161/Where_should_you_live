@@ -138,12 +138,7 @@
                             </h4>
                         </div>
                         <div class="col-xl-8 col-lg-7 col-md-7 col-sm-7">
-                            <div class="search-area">
-                                <select class="selectpicker search-fields" name="location">
-                                    <option>High to Low</option>
-                                    <option>Low to High</option>
-                                </select>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -252,7 +247,7 @@
                                 <form method="GET">
                                     <div class="form-group">
                                         <label>Area From</label>
-                                        <select class="selectpicker search-fields" name="area">
+                                        <select class="selectpicker search-fields" name="area" id="select_area">
                                             <option>Area From</option>
                                             <option>1500</option>
                                             <option>1200</option>
@@ -264,7 +259,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Property Status</label>
-                                        <select class="selectpicker search-fields" name="Status">
+                                        <select class="selectpicker search-fields" name="Status" id="select_status">
                                             <option>Property Status</option>
                                             <option>For Sale</option>
                                             <option>For Rent</option>
@@ -272,27 +267,19 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Location</label>
-                                        <select class="selectpicker search-fields" name="Location">
+                                        <select class="selectpicker search-fields" name="Location" id="select_location">
                                             <option>Location</option>
-                                            <option>United Kingdom</option>
-                                            <option>American Samoa</option>
-                                            <option>Belgium</option>
-                                            <option>Canada</option>
-                                            <option>Delaware</option>
+                                            <option>Ahmedabad</option>
+                                            <option>Gandhinagar</option>
+                                            <option>Vadodara</option>
+                                            <option>Surat</option>
+                                            <option>Rajkot</option>
                                         </select>
                                     </div>
-                                    <div class="form-group">
-                                        <label>Property Types</label>
-                                        <select class="selectpicker search-fields" name="types">
-                                            <option>Property Types</option>
-                                            <option>Residential</option>
-                                            <option>Commercial</option>
-                                            <option>Land</option>
-                                        </select>
-                                    </div>
+                                    
                                     <div class="form-group">
                                         <label>Bedrooms</label>
-                                        <select class="selectpicker search-fields" name="bedrooms">
+                                        <select class="selectpicker search-fields" name="bedrooms" id="select_bedrooms">
                                             <option>Bedrooms</option>
                                             <option>1</option>
                                             <option>2</option>
@@ -307,7 +294,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Bathrooms</label>
-                                        <select class="selectpicker search-fields" name="bedrooms">
+                                        <select class="selectpicker search-fields" name="bedrooms" id="select_bathrooms">
                                             <option>Bathrooms</option>
                                             <option>1</option>
                                             <option>2</option>
@@ -319,53 +306,13 @@
                                     <div class="form-group">
                                         <label>Price</label>
                                         <div class="range-slider">
-                                            <div data-min="0" data-max="150000" data-unit="USD" data-min-name="min_price" data-max-name="max_price" class="range-slider-ui ui-slider" aria-disabled="false"></div>
+                                            <div data-min="0" data-max="150000" data-unit="USD" data-min-name="min_price" data-max-name="max_price" class="range-slider-ui ui-slider" aria-disabled="false" id="select_price"></div>
                                             <div class="clearfix"></div>
                                         </div>
                                     </div>
                                     <br>
-                                    <h5 class="sidebar-title">Features</h5>
-                                    <div class="form-group">
-                                        <div class="form-check checkbox-theme">
-                                            <input class="form-check-input" type="checkbox" value="" id="audi">
-                                            <label class="form-check-label" for="audi">
-                                                Air Condition
-                                            </label>
-                                        </div>
-                                        <div class="form-check checkbox-theme">
-                                            <input class="form-check-input" type="checkbox" value="" id="honda">
-                                            <label class="form-check-label" for="honda">
-                                                Free Parking
-                                            </label>
-                                        </div>
-                                        <div class="form-check checkbox-theme">
-                                            <input class="form-check-input" type="checkbox" value="" id="volkswagen">
-                                            <label class="form-check-label" for="volkswagen">
-                                                Swimming Pool
-                                            </label>
-                                        </div>
-                                        <div class="form-check checkbox-theme">
-                                            <input class="form-check-input" type="checkbox" value="" id="lamborghini">
-                                            <label class="form-check-label" for="lamborghini">
-                                                Laundry Room
-                                            </label>
-                                        </div>
-                                        <div class="form-check checkbox-theme">
-                                            <input class="form-check-input" type="checkbox" value="" id="bmw">
-                                            <label class="form-check-label" for="bmw">
-                                                Central Heating
-                                            </label>
-                                        </div>
-                                        <div class="form-check checkbox-theme">
-                                            <input class="form-check-input" type="checkbox" value="" id="toyota">
-                                            <label class="form-check-label" for="toyota">
-                                                Window Covering
-                                            </label>
-                                        </div>
-                                    </div>
-
                                     <br/>
-                                    <button class="search-button btn-md btn-color">Search</button>
+                                    <button class="search-button btn-md btn-color" onclick='search()'>Search</button>
                                 </form>
                             </div>
                         </div>
