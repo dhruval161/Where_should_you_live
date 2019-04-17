@@ -115,6 +115,7 @@ function createaccount()
   var r_password = document.getElementById("r_password_field").value
   var r_email = document.getElementById("r_email_field").value
   var r_confirm_password = document.getElementById("r_confirm_password_field").value
+  let count = 0;
 
   if(r_password != r_confirm_password)
   {
@@ -128,6 +129,15 @@ function createaccount()
     window.alert("Complete the data fields");
     return ;
   }
+
+  for(i=0;i<r_name.length;i++)
+  {
+  var c = r_name.charAt(i);
+  if(c.toLowerCase() != c.toUpperCase())
+  {count+=1;}
+  }
+  if(count==0){window.alert("Invalid username!!!");return;}
+
   else
   {
 
