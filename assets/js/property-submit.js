@@ -77,6 +77,25 @@ function addProperty()
            age.length==0 || contact.length==0 || email.length==0 || phone.length<10)
         {window.alert("Please fill all the required fields");return;}
          
+    let rentstatus = $('#rent:checked').length > 0;
+    let salestatus = $('#sale:checked').length > 0;
+
+    if( (rentstatus^salestatus) == 0 )
+    {
+        window.alert("You can give property for Rent or for Sale");
+        return;
+    }
+    if(code < 0)
+    {
+        window.alert("Postal code cannot be negative");
+        return;
+    }
+    if(age < 0)
+    {
+        window.alert("Building Age cannot be negative");
+        return;
+    }
+    
 
     propertyUpload = propertyRef.push({
         name : document.getElementById("name").value,
@@ -118,9 +137,11 @@ function addProperty()
                 }, (error) => {
                     // Handle unsuccessful uploads
                     console.log(error);
+                    alert(error);
                 }, () => {
                     // Do something once upload is complete
                     console.log('success');
+                    window.location.href = 'my-properties.html';
                 });
         }
         
@@ -129,6 +150,10 @@ function addProperty()
         var userUpd =  userRef.push(propertyId);
         console.log("user updated");
 
+        setTimeout(function(){
+            window.location.href = 'my-properties.html';
+        },2000);
+        
         
         
     

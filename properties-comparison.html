@@ -157,7 +157,7 @@
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-12">
                 <div class="card compare-properties">
-                    <img class="card-img-top img-fluid" src="assets/img/property-3.jpg" alt="property-3">
+                    <img class="card-img-top img-fluid" id="imageprp1" src="assets/img/property-3.jpg" alt="property-3">
                     <div class="card-body detail">
                         <div class="pull-left">
                             <h5 id="property_name1">Property 1</h5>
@@ -177,7 +177,7 @@
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12">
                 <div class="card compare-properties">
-                    <img class="card-img-top img-fluid" src="assets/img/property-2.jpg" alt="property-2">
+                    <img class="card-img-top img-fluid" id="imageprp2" src="assets/img/property-2.jpg" alt="property-2">
                     <div class="card-body detail">
                         <div class="pull-left">
                             <h5 id="property_name2">Property 2</h5>
@@ -235,27 +235,13 @@
                                         <td>10</i></td>
                                         <td>2</i></td>
                                     </tr>                                        
-                                    <tr>
-                                        <td> Garage </td>
-                                        <td> 1</td>
-                                        <td> 1</td>
-                                    </tr>
+                                    
                                     <tr>
                                         <td> Parking </td>
-                                        <td> 1</td>
-                                        <td> 1</td>
+                                        <td> <i id="park1" class="fa fa-check"></i> </td>
+                                        <td> <i id="park2" class="fa fa-check"></i> </td>
                                     </tr>
 
-                                    <tr>
-                                        <td> Bedrooms </td>
-                                        <td> <i id="bed1" class="fa fa-check"></i> </td>
-                                        <td> <i id="bed2" class="fa fa-check"></i> </td>
-                                    </tr>
-                                    <tr>
-                                        <td> Bathrooms </td>
-                                        <td> <i id="bath1" class="fa fa-check"></i> </td>
-                                        <td> <i id="bath2" class="fa fa-check"></iid="bath1"> </td>
-                                    </tr>
                                     <tr>
                                         <td> Swimming Pool </td>
                                         <td> <i id="swim1" class="fa fa-check"></i> </td>
@@ -267,22 +253,7 @@
                                         <td> <i id="laund1" class="fa fa-check"></i></td>
                                         <td> <i id="laund2" class="fa fa-check"></i></td>
                                     </tr>
-                                        
-                                    <tr>
-                                        <td> Gym </td>
-                                        <td> <i id="gym1" class="fa fa-check"></i></td>
-                                        <td> <i id="gym2" class="fa fa-check"></i></td>
-                                    </tr>
-                                    <tr>
-                                        <td> Private space </td>
-                                        <td> <i id="priv1" class="fa fa-check"></i></td>
-                                        <td> <i id="priv2" class="fa fa-check"></i></td>
-                                    </tr>
-                                    <tr>
-                                        <td> Window covering </td>
-                                        <td> <i id="wc1" class="fa fa-check"></i></td>
-                                        <td> <i id="wc2" class="fa fa-check"></i></td>
-                                    </tr>   
+                                       
                                     <tr>
                                         <td> Balcony </td>
                                         <td> <i id="bc1" class="fa fa-check"></i></td>
@@ -448,109 +419,105 @@
     function compare_prop()
     {
 
-    prop1 = document.getElementById("prop1").value;
-    prop2 = document.getElementById("prop2").value;
-    let flag1 = 0;
-    let flag2 = 0;
-    var rating = 3;
-    var i;
+        prop1 = document.getElementById("prop1").value;
+        prop2 = document.getElementById("prop2").value;
+        let flag1 = 0;
+        let flag2 = 0;
+        var rating = 3;
+        var i;
 
-    var propdet = firebase.database().ref("properties/");
-    propdet.on("value", function(data) {
-    let val = data.val();
-    for(x in val)
-    {
+        var propdet = firebase.database().ref("properties/");
+        propdet.on("value", function(data) {
+            let val = data.val();
+            for(x in val)
+            {
 
-    if(flag1==1 && flag2==1)
-    {
-    console.log("Breaking Out");
-    break;
-    }
+                if(flag1===1 && flag2===1)
+                {
+                    console.log("Breaking Out");
+                    break;
+                }
 
-    if(val[x].name == prop1 && flag1==0)
-    {
-    console.log(val[x]);//22
-    flag1 = 1;
+                if(val[x].name == prop1 && flag1===0)
+                {
+                    console.log(val[x]);//22
+                    flag1 = 1;
 
-    for(i=11;i<(11+rating);i++)
-    {
-    console.log('star');
-    document.getElementById('star'+i.toString()).className = "fa fa-star";
-    }
-
-
-    document.getElementById('property_name1').innerText = val[x].name;
-    document.getElementById('price1').innerText = val[x].price;
-    document.body.getElementsByTagName("td")[1].innerHTML = val[x].area;
-    document.body.getElementsByTagName("td")[4].innerHTML = val[x].bedroom;
-    document.body.getElementsByTagName("td")[7].innerHTML = val[x].bathroom;
-    document.body.getElementsByTagName("td")[10].innerHTML = val[x].price;
-    document.body.getElementsByTagName("td")[13].innerHTML = val[x].age;
-
-    if(val[x].garage==undefined){document.body.getElementsByTagName("td")[16].innerHTML = 0;}
-    else{document.body.getElementsByTagName("td")[16].innerHTML = val[x].garage;}
-
-    if(val[x].parking==undefined){document.body.getElementsByTagName("td")[19].innerHTML = 0;}
-    else{document.body.getElementsByTagName("td")[19].innerHTML = val[x].parking;}
-   
-
-    if(val[x].bedroom<=0){document.getElementById('bed1').className="fa fa-times";}
-    if(val[x].bathroom<=0){document.getElementById('bath1').className="fa fa-times";}
-    if(val[x].swimmingpool==false){document.getElementById('swim1').className="fa fa-times";}
-    if(val[x].laundryroom<=0){document.getElementById('laund1').className="fa fa-times";}
-    if(val[x].gym<=0){document.getElementById('gym1').className="fa fa-times";}
-    if(val[x].privatespace<=0){document.getElementById('priv1').className="fa fa-times";}
-    if(val[x].windowcovering==false){document.getElementById('wc1').className="fa fa-times";}
-    if(val[x].balcony<=0){document.getElementById('bc1').className="fa fa-times";}
-
-    }
-
-    if(val[x].name == prop2 && flag2==0)
-    {
-    console.log(val[x]);
-    flag2 = 1;
-
-    for(i=21;i<(21+rating);i++)
-    {
-    console.log('star');
-    document.getElementById('star'+i.toString()).className = "fa fa-star";
-    }
+                    for(i=11;i<(11+rating);i++)
+                    {
+                        console.log('star');
+                        document.getElementById('star'+i.toString()).className = "fa fa-star";
+                    }
 
 
-    document.getElementById('property_name2').innerText = val[x].name;
-    document.getElementById('price2').innerText = val[x].price;
+                    document.getElementById('property_name1').innerText = val[x].name;
+                    $('#property_name1').attr('href','properties-details.html?id='+x);
+                    document.getElementById('price1').innerText = '$ '+val[x].price;
+                    document.body.getElementsByTagName("td")[1].innerHTML = val[x].area;
+                    document.body.getElementsByTagName("td")[4].innerHTML = val[x].bedroom;
+                    document.body.getElementsByTagName("td")[7].innerHTML = val[x].bathroom;
+                    document.body.getElementsByTagName("td")[10].innerHTML = '$ '+ val[x].price;
+                    document.body.getElementsByTagName("td")[13].innerHTML = val[x].age;
+                    
+                    $('#imageprp1').attr("src","https://firebasestorage.googleapis.com/v0/b/where-should-you-live.appspot.com/o/images%2F"+ x +"?alt=media&token=3e4b4997-6a52-4106-bc9e-34b0cd025e04");
+                    
+                    if(val[x].freeparking==false){document.getElementById("park1").className="fa fa-times";}
+
+                
+
+                    if(val[x].bedroom<=0){document.getElementById('bed1').className="fa fa-times";}
+                    if(val[x].bathroom<=0){document.getElementById('bath1').className="fa fa-times";}
+                    if(val[x].swimmingpool==false){document.getElementById('swim1').className="fa fa-times";}
+                    if(val[x].laundryroom<=0){document.getElementById('laund1').className="fa fa-times";}
+                    if(val[x].windowcovering==false){document.getElementById('bc1').className="fa fa-times";}
+    
+                }
+
+                if(val[x].name == prop2 && flag2===0)
+                {
+                    console.log(val[x]);
+                    flag2 = 1;
+
+                    for(i=21;i<(21+rating);i++)
+                    {
+                        console.log('star');
+                        document.getElementById('star'+i.toString()).className = "fa fa-star";
+                    }
 
 
-    document.body.getElementsByTagName("td")[2].innerHTML = val[x].area;
-    document.body.getElementsByTagName("td")[5].innerHTML = val[x].bedroom;
-    document.body.getElementsByTagName("td")[8].innerHTML = val[x].bathroom;
-    document.body.getElementsByTagName("td")[11].innerHTML = val[x].price;
-    document.body.getElementsByTagName("td")[14].innerHTML = val[x].age;
+                    document.getElementById('property_name2').innerText = val[x].name;
+                    $('#property_name2').attr('href','properties-details.html?id='+x);
+                    document.getElementById('price2').innerText = '$ '+val[x].price;
+                    
+                    $('#imageprp2').attr("src","https://firebasestorage.googleapis.com/v0/b/where-should-you-live.appspot.com/o/images%2F"+ x +"?alt=media&token=3e4b4997-6a52-4106-bc9e-34b0cd025e04");
+                    
 
-    if(val[x].garage==undefined){document.body.getElementsByTagName("td")[17].innerHTML = 0;}
-    else{document.body.getElementsByTagName("td")[17].innerHTML = val[x].garage;}
+                    document.body.getElementsByTagName("td")[2].innerHTML = val[x].area;
+                    document.body.getElementsByTagName("td")[5].innerHTML = val[x].bedroom;
+                    document.body.getElementsByTagName("td")[8].innerHTML = val[x].bathroom;
+                    document.body.getElementsByTagName("td")[11].innerHTML = '$ ' +val[x].price;
+                    document.body.getElementsByTagName("td")[14].innerHTML = val[x].age;
 
-    if(val[x].parking==undefined){document.body.getElementsByTagName("td")[20].innerHTML = 0;}
-    else{document.body.getElementsByTagName("td")[20].innerHTML = val[x].parking;}
+                    
+                    if(val[x].freeparking==false){document.getElementById("park2").className="fa fa-times";}
 
-    if(val[x].bedroom<=0){document.getElementById('bed2').className="fa fa-times";}
-    if(val[x].bathroom<=0){document.getElementById('bath2').className="fa fa-times";}
-    if(val[x].swimmingpool==false){document.getElementById('swim2').className="fa fa-times";}
-    if(val[x].laundryroom<=0){document.getElementById('laund2').className="fa fa-times";}
-    if(val[x].gym<=0){document.getElementById('gym2').className="fa fa-times";}
-    if(val[x].privatespace<=0){document.getElementById('priv2').className="fa fa-times";}
-    if(val[x].windowcovering==false){document.getElementById('wc2').className="fa fa-times";}
-    if(val[x].balcony<=0){document.getElementById('bc2').className="fa fa-times";}
-    }
+                    if(val[x].bedroom<=0){document.getElementById('bed2').className="fa fa-times";}
+                    if(val[x].bathroom<=0){document.getElementById('bath2').className="fa fa-times";}
+                    if(val[x].swimmingpool==false){document.getElementById('swim2').className="fa fa-times";}
+                    if(val[x].laundryroom<=0){document.getElementById('laund2').className="fa fa-times";}
+                    if(val[x].windowcovering==false){document.getElementById('bc2').className="fa fa-times";}
+                    
+                }
 
-    }
+            }
+            
+            if(flag1===0 || flag2===0)
+            {
+                window.alert("Properties does not match");
+            }
+        });
 
-    });
-
-    if(flag1==0 && flag2==0)
-    {
-    console.log("Fail");
-    }
+        
 
 
     }
