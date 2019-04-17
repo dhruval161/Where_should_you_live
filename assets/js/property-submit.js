@@ -151,9 +151,9 @@ function addProperty()
         console.log("user updated");
 
         setTimeout(function(){
-            location.href = "login.html";
+            window.location.href = 'my-properties.html';
         },2000);
-        //window.location.href = 'my-properties.html'
+        
         
         
     
