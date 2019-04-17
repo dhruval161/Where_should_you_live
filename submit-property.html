@@ -20,7 +20,12 @@
     <link type="text/css" rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.css">
     <link type="text/css" rel="stylesheet" href="assets/fonts/font-awesome/css/font-awesome.min.css">
     <link type="text/css" rel="stylesheet" href="assets/fonts/flaticon/font/flaticon.css">
-
+    <style>
+        .form-group.required :after {
+            content:"*";
+            color:red;
+        }
+    </style>
     <!-- Favicon icon -->
     <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon" >
 
@@ -135,25 +140,25 @@
                                 <h3 class="heading">Basic Information</h3>
                                 <div class="row mb-50">
                                     <div class="col-lg-4 col-md-6">
-                                        <div class="form-group">
+                                        <div class="form-group required">
                                             <label>Property Title</label>
                                             <input type="text" id="name" name="property-title" class="form-control" placeholder="Property Title">
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6">
-                                        <div class="form-group">
+                                        <div class="form-group required">
                                             <label>Price</label>
                                             <input type="text" id="price" name="price" class="form-control" placeholder="USD">
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6">
-                                        <div class="form-group">
+                                        <div class="form-group required">
                                             <label>Area/Location</label>
                                             <input type="text" id="area" name="price" class="form-control" placeholder="SqFt">
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6">
-                                        <div class="form-group">
+                                        <div class="form-group ">
                                             <label>Bedrooms</label>
                                             <select id="bedroom" class="selectpicker search-fields" name="Status">
                                                 <option value="1" >1</option>
@@ -164,7 +169,7 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-6">
-                                        <div class="form-group">
+                                        <div class="form-group ">
                                             <label>Bathroom</label>
                                             <select id="bathroom" class="selectpicker search-fields" name="Status">
                                                 <option value="1">1</option>
@@ -187,13 +192,13 @@
                                 <h3 class="heading">Location</h3>
                                 <div class="row mb-50">
                                     <div class="col-lg-6 col-md-6">
-                                        <div class="form-group">
+                                        <div class="form-group required">
                                             <label>Address</label>
                                             <input id="address" type="text" name="address" class="form-control" placeholder="Address">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6">
-                                        <div class="form-group">
+                                        <div class="form-group ">
                                             <label>City</label>
                                             <select id="city" class="selectpicker search-fields" name="city">
                                                 <option value="Ahmedabad">Ahmedabad</option>
@@ -205,13 +210,13 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6">
-                                        <div class="form-group">
+                                        <div class="form-group required">
                                             <label>Postal Code</label>
                                             <input id="code" type="number" name="postal-code" class="form-control" placeholder="Postal Code">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6">
-                                        <div class="form-group">
+                                        <div class="form-group required">
                                             <label>Building Age</label>
                                             <input id="age" type="number" name="building-age" class="form-control" placeholder="Building Age">
                                         </div>
@@ -294,19 +299,19 @@
                                 <h3 class="heading">Contact Details</h3>
                                 <div class="row">
                                     <div class="col-lg-4 col-md-4">
-                                        <div class="form-group">
+                                        <div class="form-group required">
                                             <label>Name</label>
                                             <input id="contact" type="text" name="name" class="form-control" placeholder="Name">
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-4">
-                                        <div class="form-group">
+                                        <div class="form-group required">
                                             <label>Email</label>
                                             <input id="email" type="email" name="email" class="form-control" placeholder="Email">
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-4">
-                                        <div class="form-group">
+                                        <div class="form-group required">
                                             <label>Phone</label>
                                             <input id="phone" type="text" name="name" class="form-control" placeholder="Phone">
                                         </div>
