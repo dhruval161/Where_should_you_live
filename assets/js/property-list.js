@@ -228,6 +228,8 @@ function getProperty(result)
 
 function favorite(result)
 {
+if(loggedin())
+{
 console.log(result);
 if(result.className == "fa fa-heart-o" )
 {
@@ -259,6 +261,16 @@ console.log("favorite deleted!!");
 //userRef.push(result.id);
 //console.log("favorite pushed!!")
 
+}
+
+else
+{
+    console.log("redirect");
+    setTimeout(function(){
+        location.href = "login.html";
+    },100);
+
+}
 }
 
 function checkfav(propnm)
