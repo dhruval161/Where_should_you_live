@@ -449,7 +449,7 @@
         // read user properties
 
             console.log("users/" + getuserdetails() + "/property/");
-            var userdet = firebase.database().ref("users/" + getuserdetails() + "/property/");
+            var userdet = firebase.database().ref("users/" + getuserdetails() + "/favorites/");
             let iterator = 1;
             user_houses = [];
             userdet.on("value", function(data) {
