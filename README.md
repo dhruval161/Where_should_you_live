@@ -22,5 +22,7 @@
 ### How?
 You can visit the live website with the following url - http://wsyl4.surge.sh
 
-### Contributing
+### Developers
+- Harsh Kotta harshkotta@gmail.com
+- Dhruval Suthar dhruval161@gmail.com
 
