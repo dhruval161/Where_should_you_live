@@ -224,3 +224,31 @@ iterator_num++;
 });
 
 }
+
+function addmyprop(arr,num_child,indexes)
+{
+    let prop_iterator = 0;
+    var userdet = firebase.database().ref("users/" + getuserdetails() + "/property/");
+    userdet.on("value", function(data_prop) {
+    let val = data_prop.val();
+        for(x in val)
+        {
+            console.log(val[x]);
+            indexes.push(val[x])
+            prop_iterator++;
+
+            if(prop_iterator==data_prop.numChildren())
+            {
+            console.log(arr);
+            console.log(num_child);
+            console.log(indexes);
+            find_similar_houses(arr,num_child,indexes);
+            return;
+            }
+        }
+
+
+
+});
+return;
+}
