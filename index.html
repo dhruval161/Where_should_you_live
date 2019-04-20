@@ -176,7 +176,7 @@
                 <div class="property-box-8">
                     <div class="property-photo">
                         <img id="img1" src="assets/img/property-3.jpg" alt="property-6" class="img-fluid">
-                        <div class="date-box">For Sale</div>
+                        <!--<div class="date-box">For Sale</div>-->
                     </div>
                     <div class="detail">
                         <div class="heading">
@@ -201,7 +201,7 @@
                 <div class="property-box-8">
                     <div class="property-photo">
                         <img id="img2" src="assets/img/property-6.jpg" alt="property-6" class="img-fluid">
-                        <div class="date-box">For Sale</div>
+                        <!--<div class="date-box">For Sale</div>-->
                     </div>
                     <div class="detail">
                         <div class="heading">
@@ -226,7 +226,7 @@
                 <div class="property-box-8">
                     <div class="property-photo">
                         <img id="img3" src="assets/img/property-2.jpg" alt="property-2" class="img-fluid">
-                        <div class="date-box">For Sale</div>
+                        <!--<div class="date-box">For Sale</div>-->
                     </div>
                     <div class="detail">
                         <div class="heading">
@@ -251,7 +251,7 @@
                 <div class="property-box-8">
                     <div class="property-photo">
                         <img id="img4" src="assets/img/property-1.jpg" alt="property-6" class="img-fluid">
-                        <div class="date-box">For Sale</div>
+                        <!--<div class="date-box">For Sale</div>-->
                     </div>
                     <div class="detail">
                         <div class="heading">
@@ -529,7 +529,6 @@
             {return;}
             //console.log(val[x].age);
             //console.log(!indexes.includes(x));
-            //console.log(x);
             //console.log(!indexes.includes(x));
 
             if(!indexes.includes(x))
@@ -578,6 +577,7 @@
             document.getElementById("img" + (i+1).toString()).src = "https://firebasestorage.googleapis.com/v0/b/where-should-you-live.appspot.com/o/images%2F"+ best_prop_index +"?alt=media&token=3e4b4997-6a52-4106-bc9e-34b0cd025e04";
             document.getElementById("recname" + (i+1).toString()).href = "properties-details.html?id=" + best_prop_index;
             console.log(max);
+            console.log(i);
             }
 
         }
