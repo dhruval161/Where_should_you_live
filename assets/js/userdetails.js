@@ -230,6 +230,8 @@ function addmyprop(arr,num_child,indexes)
     let prop_iterator = 0;
     var userdet = firebase.database().ref("users/" + getuserdetails() + "/property/");
     userdet.on("value", function(data_prop) {
+    if(data_prop.numChildren()==0){console.log("No myprop");find_similar_houses(arr,num_child,indexes);}
+
     let val = data_prop.val();
         for(x in val)
         {
