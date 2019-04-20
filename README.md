@@ -14,7 +14,7 @@
 
 - [What](#what)
 - [How](#how)
-- [Contributing](#contributing)
+- [Developers](#developers)
 
 ### What?
 “Where Should You Live?” will create a platform where the users will be able to browse through houses made available by the sellers. Buying a home requires more than a basic listing of properties. The interface will be providing exact key information along with the valuation of property which can help the customers make a better decision when buying a home. 
@@ -23,6 +23,6 @@
 You can visit the live website with the following url - http://wsyl4.surge.sh
 
 ### Developers
-- Harsh Kotta harshkotta@gmail.com
-- Dhruval Suthar dhruval161@gmail.com
+- Harsh Kotta - harshkotta@gmail.com
+- Dhruval Suthar - dhruval161@gmail.com
 
