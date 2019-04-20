@@ -468,7 +468,7 @@
                     arr.push(propdata.val())
                     if(iterator==data.numChildren())
                     {
-                        find_similar_houses(arr,data.numChildren(),indexes);
+                        addmyprop(arr,data.numChildren(),indexes);
                         return;}
                         iterator+=1;
 
@@ -500,7 +500,6 @@
         console.log(indexes);
 
         var best_prop=null,best_prop_index=null;
-        console.log(best_prop);
         var long1,lat1,long2,lat2,long3,lat3;
         var i;
         var index;
